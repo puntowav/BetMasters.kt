@@ -49,10 +49,10 @@
             android:background="@drawable/round_button"
             android:drawableLeft="@drawable/facebooklogo"
             android:text="Sign In with Facebook"
+            app:backgroundTint="@color/facebook_blue"
             android:textAlignment="center"
             android:textColor="@android:color/white"
-            android:textSize="22sp"
-            app:backgroundTint="@color/facebook_blue" />
+            android:textSize="22sp"/>
 
         <Button
             android:id="@+id/appleLog"
@@ -99,7 +99,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/singUp"
-                android:textColor="@color/dark_blue"
+                android:textColor="@color/fondo_card"
                 tools:layout_editor_absoluteX="221dp"
                 tools:layout_editor_absoluteY="562dp"
                 android:layout_marginLeft="4dp"/>
@@ -110,7 +110,7 @@
             android:layout_width="match_parent"
             android:layout_height="65dp"
             android:background="@drawable/round_button"
-            android:drawableLeft="@drawable/"
+            android:drawableLeft="@drawable/betmastericon_2_optimized"
             android:text="Continue as guest"
             android:textAlignment="center"
             android:textColor="@android:color/white"

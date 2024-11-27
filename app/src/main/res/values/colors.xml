@@ -9,4 +9,5 @@
     <color name="boton_switch">#FFFFFF</color>
     <color name="fondo_switch_on">#0C5D7D</color>
     <color name="fondo_card">#0C5D7D</color>
+    <color name="divider">#0C5D7D</color>
 </resources>
