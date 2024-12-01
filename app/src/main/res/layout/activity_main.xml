@@ -12,6 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
+        android:layout_marginTop="200dp"
         android:orientation="vertical"
         android:padding="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -20,11 +21,30 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
 
+        <EditText
+            android:id="@+id/nameOrMial"
+            android:layout_width="345dp"
+            android:layout_height="48dp"
+            android:inputType="textPassword"
+            android:background="@drawable/edittext_background"
+            android:layout_marginBottom="16dp"
+            android:hint="@string/nameOrMailHint"
+            android:paddingStart="16dp"/>
+
+        <EditText
+            android:id="@+id/passwordTextInput"
+            android:layout_width="345dp"
+            android:layout_height="48dp"
+            android:inputType="textPassword"
+            android:background="@drawable/edittext_background"
+            android:layout_marginBottom="16dp"
+            android:hint="@string/passwordHint"
+            android:paddingStart="16dp"/>
+
         <Button
             android:id="@+id/singIn"
-            android:layout_width="375dp"
-            android:layout_height="65dp"
-            android:layout_marginTop="224dp"
+            android:layout_width="345dp"
+            android:layout_height="48dp"
             android:background="@drawable/round_button"
             android:text="Sign In"
             android:textAlignment="center"
@@ -39,28 +59,28 @@
             android:layout_width="match_parent"
             android:layout_height="4dp"
             android:layout_marginBottom="16dp"
-            android:background="@color/divider" />
+            android:background="@color/dark_blue" />
 
         <Button
             android:id="@+id/facebookLog"
             android:layout_width="match_parent"
-            android:layout_height="65dp"
+            android:layout_height="48dp"
             android:layout_marginBottom="16dp"
             android:background="@drawable/round_button"
-            android:drawableLeft="@drawable/facebooklogo"
+            android:drawableLeft="@drawable/facebooklogo_32"
             android:text="Sign In with Facebook"
+            app:backgroundTint="@color/facebook_blue"
             android:textAlignment="center"
             android:textColor="@android:color/white"
-            android:textSize="22sp"
-            app:backgroundTint="@color/facebook_blue" />
+            android:textSize="22sp"/>
 
         <Button
             android:id="@+id/appleLog"
             android:layout_width="match_parent"
-            android:layout_height="65dp"
+            android:layout_height="48dp"
             android:layout_marginBottom="16dp"
             android:background="@drawable/round_button"
-            android:drawableLeft="@drawable/applelogo"
+            android:drawableLeft="@drawable/applelogo_32"
             android:text="Sign In with Apple"
             android:textAlignment="center"
             android:textColor="@android:color/white"
@@ -70,9 +90,9 @@
         <Button
             android:id="@+id/googleLog"
             android:layout_width="match_parent"
-            android:layout_height="65dp"
+            android:layout_height="48dp"
             android:background="@drawable/round_button"
-            android:drawableLeft="@drawable/googlelogo"
+            android:drawableLeft="@drawable/googlelogo_32"
             android:text="Sign In with Google"
             android:textAlignment="center"
             android:textColor="@android:color/black"
@@ -105,19 +125,22 @@
                 android:layout_marginLeft="4dp"/>
         </LinearLayout>
 
-        <Button
-            android:id="@+id/guestLog"
-            android:layout_width="match_parent"
-            android:layout_height="65dp"
-            android:background="@drawable/round_button"
-            android:drawableLeft="@drawable/"
-            android:text="Continue as guest"
-            android:textAlignment="center"
-            android:textColor="@android:color/white"
-            android:textSize="22sp"
-            app:backgroundTint="@color/black" />
+    <Button
+        android:id="@+id/guestLog"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@drawable/round_button"
+        android:drawableLeft="@drawable/betmastericon_2_optimized"
+        android:paddingLeft="8dp"
+        android:text="Continue as guest"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="22sp"
+        app:backgroundTint="@color/black"
+        tools:layout_editor_absoluteX="41dp"
+        tools:layout_editor_absoluteY="588dp" />
 
-    </LinearLayout>
+</LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
