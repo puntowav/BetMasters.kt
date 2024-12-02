@@ -8,4 +8,6 @@
     <string name="singUp">Sing up now</string>
     <string name="passwordHint">Enter your password</string>
     <string name="nameOrMailHint">Enter your user name</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
