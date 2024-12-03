@@ -39,7 +39,7 @@
             android:layout_marginTop="24dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="8dp"
-            android:backgroundTint="#BDB4B4"
+            android:backgroundTint="@color/grey_coins"
             android:contentDescription="Botón monedas"
             app:cardCornerRadius="8dp">
 
@@ -90,7 +90,7 @@
                 android:layout_margin="4dp"
                 android:clickable="true"
                 android:focusable="true"
-                app:cardBackgroundColor="#0C5D7D"
+                app:cardBackgroundColor="@color/cardview_filter"
                 app:cardCornerRadius="16dp">
 
                 <LinearLayout
@@ -122,7 +122,7 @@
                 android:layout_width="120dp"
                 android:layout_height="70dp"
                 android:layout_margin="4dp"
-                app:cardBackgroundColor="#0C5D7D"
+                app:cardBackgroundColor="@color/cardview_filter"
                 app:cardCornerRadius="16dp">
 
                 <LinearLayout
@@ -154,7 +154,7 @@
                 android:layout_width="120dp"
                 android:layout_height="70dp"
                 android:layout_margin="4dp"
-                app:cardBackgroundColor="#0C5D7D"
+                app:cardBackgroundColor="@color/cardview_filter"
                 app:cardCornerRadius="16dp">
 
                 <LinearLayout
@@ -185,7 +185,7 @@
                 android:layout_width="120dp"
                 android:layout_height="70dp"
                 android:layout_margin="4dp"
-                app:cardBackgroundColor="#0C5D7D"
+                app:cardBackgroundColor="@color/cardview_filter"
                 app:cardCornerRadius="16dp">
 
                 <LinearLayout
@@ -235,7 +235,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
-                    android:backgroundTint="#D6E3F6"
+                    android:backgroundTint="@color/cardview_matches"
                     app:cardCornerRadius="16dp">
 
                     <FrameLayout
@@ -270,7 +270,7 @@
                                 android:layout_gravity="start"
                                 android:layout_marginStart="8dp"
                                 android:layout_marginBottom="8dp"
-                                android:backgroundTint="#0C5D7D"
+                                android:backgroundTint="@color/cardview_filter"
                                 app:cardCornerRadius="8dp">
 
                                 <TextView
@@ -314,7 +314,7 @@
                                 android:layout_gravity="start"
                                 android:layout_marginStart="8dp"
                                 android:layout_marginBottom="8dp"
-                                android:backgroundTint="#0C5D7D"
+                                android:backgroundTint="@color/cardview_filter"
                                 app:cardCornerRadius="8dp">
 
                                 <TextView
@@ -372,7 +372,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
-                    android:backgroundTint="#D6E3F6"
+                    android:backgroundTint="@color/cardview_matches"
                     app:cardCornerRadius="16dp">
 
                     <FrameLayout
@@ -407,7 +407,7 @@
                                 android:layout_gravity="start"
                                 android:layout_marginStart="8dp"
                                 android:layout_marginBottom="8dp"
-                                android:backgroundTint="#0C5D7D"
+                                android:backgroundTint="@color/cardview_filter"
                                 app:cardCornerRadius="8dp">
 
                                 <TextView
@@ -451,7 +451,7 @@
                                 android:layout_gravity="start"
                                 android:layout_marginStart="8dp"
                                 android:layout_marginBottom="8dp"
-                                android:backgroundTint="#0C5D7D"
+                                android:backgroundTint="@color/cardview_filter"
                                 app:cardCornerRadius="8dp">
 
                                 <TextView
@@ -509,7 +509,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
-                    android:backgroundTint="#D6E3F6"
+                    android:backgroundTint="@color/cardview_matches"
                     app:cardCornerRadius="16dp">
 
                     <FrameLayout
@@ -544,7 +544,7 @@
                                 android:layout_gravity="start"
                                 android:layout_marginStart="8dp"
                                 android:layout_marginBottom="8dp"
-                                android:backgroundTint="#0C5D7D"
+                                android:backgroundTint="@color/cardview_filter"
                                 app:cardCornerRadius="8dp">
 
                                 <TextView
@@ -588,7 +588,7 @@
                                 android:layout_gravity="start"
                                 android:layout_marginStart="8dp"
                                 android:layout_marginBottom="8dp"
-                                android:backgroundTint="#0C5D7D"
+                                android:backgroundTint="@color/cardview_filter"
                                 app:cardCornerRadius="8dp">
 
                                 <TextView
@@ -669,6 +669,7 @@
 
                 <!-- Elemento 1 -->
                 <LinearLayout
+                    android:id="@+id/iconRedeem"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -676,7 +677,7 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/iconRedeem"
+
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:src="@drawable/redeem"
@@ -686,6 +687,7 @@
 
                 <!-- Elemento 2 -->
                 <LinearLayout
+                    android:id="@+id/iconHome"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -693,7 +695,7 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/iconHome"
+
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:src="@drawable/home"
@@ -703,6 +705,7 @@
 
                 <!-- Elemento 3 -->
                 <LinearLayout
+                    android:id="@+id/iconGames"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -710,7 +713,7 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/iconGames"
+
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:src="@drawable/game"

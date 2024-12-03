@@ -7,4 +7,8 @@
     <color name="fondo_switch_off">#D6E3F6</color>
     <color name="boton_switch">#FFFFFF</color>
     <color name="dark_blue">#0C5D7D</color>
+    <color name="cardview_filter">#0C5D7D</color>
+    <color name="cardview_matches">#D6E3F6</color>
+    <color name="grey_coins">#BDB4B4</color>
+
 </resources>
