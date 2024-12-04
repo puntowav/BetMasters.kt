@@ -56,7 +56,7 @@ class Home : AppCompatActivity() {
         val profileButton: ImageButton = findViewById(R.id.btnPerfil)
 
         profileButton.setOnClickListener {
-            navigateToActivity(Perfil::class.java)
+            navigateToActivity(SettingsActivity::class.java)
         }
 
     }
