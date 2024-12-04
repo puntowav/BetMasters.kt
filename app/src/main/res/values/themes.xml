@@ -3,7 +3,45 @@
     <style name="Base.Theme.BetMasters" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <color name="black">#FF000000</color>
+        <color name="white">#FFFFFFFF</color>
+        <color name="facebook_blue">#1877F2</color>
+        <color name="google_white">#D9D9D9</color>
+        <color name="fondo_switch_off">#D6E3F6</color>
+        <color name="boton_switch">#FFFFFF</color>
+        <color name="dark_blue">#0C5D7D</color>
+        <color name="cardview_filter">#0C5D7D</color>
+        <color name="cardview_matches">#D6E3F6</color>
+        <color name="grey_coins">#BDB4B4</color>
     </style>
 
     <style name="Theme.BetMasters" parent="Base.Theme.BetMasters" />
+
+    <style name="fondoApp">
+        <item name="android:background">@color/white</item>
+    </style>
+    <style name="fondoCardRedeem">
+        <item name="android:background">@color/white</item>
+    </style>
+    <style name="cardCoins">
+        <item name="android:backgroundTint">@color/grey_coins</item>
+    </style>
+    <style name="cardGame">
+        <item name="android:backgroundTint">@color/grey_coins</item>
+    </style>
+    <style name="textCoins">
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="iconCoin">
+        <item name="android:src">@drawable/redeem</item>
+    </style>
+    <style name="iconHome">
+        <item name="android:src">@drawable/home</item>
+    </style>
+    <style name="iconGame">
+        <item name="android:src">@drawable/game</item>
+    </style>
+    <style name="iconGameArrow">
+        <item name="android:src">@drawable/arrowgame</item>
+    </style>
 </resources>

@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    style="@style/fondoApp"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
@@ -38,7 +38,7 @@
             android:layout_marginTop="24dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="8dp"
-            android:backgroundTint="@color/grey_coins"
+            style="@style/cardCoins"
             android:contentDescription="Botón monedas"
             app:cardCornerRadius="8dp">
 
@@ -59,8 +59,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
+                    style="@style/textCoins"
                     android:text="Coins"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"/>
 
 
             </LinearLayout>
@@ -663,7 +664,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
                 android:orientation="horizontal"
-                android:background="@color/white"
+                style="@style/fondoApp"
                 android:gravity="center">
 
                 <!-- Elemento 1 -->
@@ -676,11 +677,9 @@
                     android:orientation="vertical">
 
                     <ImageView
-
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:src="@drawable/redeem"
-                        app:tint="@color/black"/>
+                        style="@style/iconCoin"/>
 
                 </LinearLayout>
 
@@ -697,8 +696,7 @@
 
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:src="@drawable/home"
-                        app:tint="@color/black"/>
+                        style="@style/iconHome"/>
 
                 </LinearLayout>
 
@@ -715,8 +713,7 @@
 
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:src="@drawable/game"
-                        app:tint="@color/black"/>
+                        style="@style/iconGame"/>
 
 
                 </LinearLayout>

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:background="@color/white"
+    style="@style/fondoApp"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -39,7 +39,7 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp"
-        android:backgroundTint="#BDB4B4"
+        style="@style/cardCoins"
         android:contentDescription="Botón monedas"
         app:cardCornerRadius="8dp">
 
@@ -60,6 +60,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
+                style="@style/textCoins"
                 android:text="Coins"
                 android:textStyle="bold" />
 
@@ -108,7 +109,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:background="@color/white">
+            style="@style/fondoCardRedeem">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -138,7 +139,7 @@
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/white">
+                style="@style/fondoCardRedeem">
 
                 <Button
                     android:layout_width="wrap_content"
@@ -164,7 +165,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:background="@color/white">
+            style="@style/fondoCardRedeem">
 
             <ImageView
                 android:id="@+id/txsteam"
@@ -272,7 +273,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:background="@color/white">
+                    style="@style/fondoCardRedeem">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -284,7 +285,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
-                        android:background="@color/white">
+                        style="@style/fondoCardRedeem">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -304,7 +305,7 @@
                 <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/white">
+                    style="@style/fondoCardRedeem">
 
                     <Button
                         android:layout_width="wrap_content"
@@ -347,7 +348,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:background="@color/white">
+                        style="@style/fondoCardRedeem">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -359,7 +360,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
-                            android:background="@color/white">
+                            style="@style/fondoCardRedeem">
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -378,7 +379,7 @@
                     <FrameLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/white">
+                        style="@style/fondoCardRedeem">
 
                         <Button
                             android:layout_width="wrap_content"
@@ -419,7 +420,7 @@
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:orientation="horizontal"
-            android:background="@color/white"
+            style="@style/fondoApp"
             android:gravity="center">
 
             <!-- Elemento 1 -->
@@ -435,8 +436,7 @@
 
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:src="@drawable/redeem"
-                    app:tint="@color/black"/>
+                    style="@style/iconCoin"/>
 
             </LinearLayout>
 
@@ -453,8 +453,7 @@
 
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:src="@drawable/home"
-                    app:tint="@color/black"/>
+                    style="@style/iconHome"/>
 
             </LinearLayout>
 
@@ -471,8 +470,7 @@
 
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:src="@drawable/game"
-                    app:tint="@color/black"/>
+                    style="@style/iconGame"/>
 
 
             </LinearLayout>

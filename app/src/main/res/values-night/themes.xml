@@ -4,4 +4,29 @@
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
     </style>
+
+    <style name="fondoApp">
+        <item name="android:background">#393737</item>
+    </style>
+    <style name="fondoCardRedeem">
+        <item name="android:background">#ABA0A0</item>
+    </style>
+    <style name="cardCoins">
+        <item name="android:backgroundTint">@color/white</item>
+    </style>
+    <style name="textCoins">
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="iconCoin">
+        <item name="android:src">@drawable/redeemnight</item>
+    </style>
+    <style name="iconHome">
+        <item name="android:src">@drawable/homenight</item>
+    </style>
+    <style name="iconGame">
+        <item name="android:src">@drawable/gamenight</item>
+    </style>
+    <style name="iconGameArrow">
+        <item name="android:src">@drawable/arrowgamenight</item>
+    </style>
 </resources>
