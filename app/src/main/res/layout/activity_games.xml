@@ -90,7 +90,8 @@
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:background="@color/cardview_matches">
 
                     <ImageView
                         android:id="@+id/ivTrilero"
@@ -120,7 +121,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Juego del Trilero"
-                            android:textSize="20dp" />
+                            android:textSize="20dp"
+                            style="@style/textCoins"/>
 
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -130,7 +132,7 @@
 
                             <ImageView
 
-                                style="@style/iconCoin"
+                                android:src="@drawable/redeem"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content" />
 
@@ -138,7 +140,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="50"
-                                android:textSize="20dp" />
+                                android:textSize="20dp"
+                                style="@style/textCoins"/>
 
                         </LinearLayout>
 
@@ -146,7 +149,7 @@
 
                     <ImageView
                         android:id="@+id/arrow"
-                        style="@style/iconGameArrow"
+                        android:src="@drawable/arrow_game"
                         android:layout_width="60dp"
                         android:layout_height="80dp"
                         android:layout_gravity="center"
@@ -166,7 +169,7 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal">
+                    android:background="@color/cardview_matches">
 
                     <ImageView
                         android:id="@+id/ivPairGame"
@@ -196,7 +199,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Juego de las Parejas"
-                            android:textSize="20dp" />
+                            android:textSize="20dp"
+                            style="@style/textCoins"/>
 
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -206,7 +210,7 @@
 
                             <ImageView
 
-                                style="@style/iconCoin"
+                                android:src="@drawable/redeem"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content" />
 
@@ -214,7 +218,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="50"
-                                android:textSize="20dp" />
+                                android:textSize="20dp"
+                                style="@style/textCoins"/>
 
                         </LinearLayout>
 
@@ -222,7 +227,7 @@
 
                     <ImageView
                         android:id="@+id/arrow2"
-                        style="@style/iconGameArrow"
+                        android:src="@drawable/arrow_game"
                         android:layout_width="60dp"
                         android:layout_height="80dp"
                         android:layout_gravity="center"
@@ -243,7 +248,7 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal">
+                    android:background="@color/cardview_matches">
 
                     <ImageView
                         android:id="@+id/ivRuleta"
@@ -273,7 +278,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Juego de la Ruleta"
-                            android:textSize="20dp" />
+                            android:textSize="20dp"
+                            style="@style/textCoins"/>
 
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -283,7 +289,7 @@
 
                             <ImageView
 
-                                style="@style/iconCoin"
+                                android:src="@drawable/redeem"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content" />
 
@@ -291,7 +297,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="50"
-                                android:textSize="20dp" />
+                                android:textSize="20dp"
+                                style="@style/textCoins"/>
 
                         </LinearLayout>
 
@@ -299,7 +306,7 @@
 
                     <ImageView
                         android:id="@+id/arrow3"
-                        style="@style/iconGameArrow"
+                        android:src="@drawable/arrow_game"
                         android:layout_width="60dp"
                         android:layout_height="80dp"
                         android:layout_gravity="center"

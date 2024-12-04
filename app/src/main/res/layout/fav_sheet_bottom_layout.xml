@@ -159,14 +159,14 @@
                 <ImageView
                     android:layout_width="75dp"
                     android:layout_height="75dp"
-                    android:src="@drawable/mad"
+                    android:src="@drawable/t1"
                     android:layout_margin="8dp"
                     android:layout_gravity="center"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Mad Lions"
+                    android:text="T1"
                     android:textColor="@color/black"
                     android:textAlignment="center"
                     android:layout_marginStart="8dp"
@@ -175,14 +175,14 @@
                 <ImageView
                     android:layout_width="75dp"
                     android:layout_height="75dp"
-                    android:src="@drawable/fnatic"
+                    android:src="@drawable/kt_rolster"
                     android:layout_margin="8dp"
                     android:layout_gravity="center"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Fnatic"
+                    android:text="KT Rolster"
                     android:textColor="@color/black"
                     android:textAlignment="center"
                     android:layout_marginStart="8dp"
@@ -199,14 +199,14 @@
                 <ImageView
                     android:layout_width="75dp"
                     android:layout_height="75dp"
-                    android:src="@drawable/mad"
+                    android:src="@drawable/geng"
                     android:layout_margin="8dp"
                     android:layout_gravity="center"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Mad Lions"
+                    android:text="Gen G"
                     android:textColor="@color/black"
                     android:textAlignment="center"
                     android:layout_marginStart="8dp"
@@ -215,14 +215,14 @@
                 <ImageView
                     android:layout_width="75dp"
                     android:layout_height="75dp"
-                    android:src="@drawable/fnatic"
+                    android:src="@drawable/hle"
                     android:layout_margin="8dp"
                     android:layout_gravity="center"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Fnatic"
+                    android:text="HLE"
                     android:textColor="@color/black"
                     android:textAlignment="center"
                     android:layout_marginStart="8dp"
