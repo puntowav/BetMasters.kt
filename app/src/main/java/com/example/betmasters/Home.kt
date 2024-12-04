@@ -2,6 +2,7 @@ package com.example.betmasters
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.activity.enableEdgeToEdge
@@ -33,6 +34,7 @@ class Home : AppCompatActivity() {
         val homeItem: LinearLayout = findViewById(R.id.iconHome)
         val redeemItem: LinearLayout= findViewById(R.id.iconRedeem)
         val gamesItem: LinearLayout= findViewById(R.id.iconGames)
+        val settings: ImageButton = findViewById(R.id.btnPerfil)
 
         homeItem.setOnClickListener {
             navigateToActivity(Home::class.java)
@@ -44,6 +46,10 @@ class Home : AppCompatActivity() {
 
         gamesItem.setOnClickListener {
             navigateToActivity(Games::class.java)
+        }
+
+        settings.setOnClickListener{
+            navigateToActivity(SettingsActivity::class.java)
         }
 
 

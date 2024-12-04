@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center_vertical">
+
+    <LinearLayout
+        android:id="@+id/principal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical|start">
+
+        <ImageView
+            android:id="@+id/icon_start"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/outline_g_translate_24"
+            android:contentDescription="Icono izquierdo"
+            android:layout_marginEnd="16dp" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <TextView
+                android:id="@android:id/title"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:textSize="16sp"
+                android:textColor="?android:attr/textColorPrimary" />
+
+            <TextView
+                android:id="@android:id/summary"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:textSize="11sp"/>
+        </LinearLayout>
+
+        <!-- Icono adicional a la derecha -->
+        <ImageView
+            android:id="@+id/icon_end"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:contentDescription="Icono derecho"
+            android:src="@drawable/baseline_keyboard_arrow_right_24"
+            android:layout_gravity="center" />
+    </LinearLayout>
+</LinearLayout>

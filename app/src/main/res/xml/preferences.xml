@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Otra Categoría -->
+    <PreferenceCategory>
+
+        <Preference
+            android:key="custom_profile"
+            android:title="Preferencias de cuenta"
+            android:layout="@layout/acc_card"
+            android:icon="@drawable/account_24"
+            android:summary="Contraseña, seguridad, detalles pesonales, añadir preferecnias"/>
+
+        <SwitchPreference
+            android:key="nightMode"
+            android:title="@string/nightmode"
+            android:icon="@drawable/outline_nightlight_24"/>
+
+        <SwitchPreference
+            android:key="Notifications"
+            android:title="@string/notifications"
+            android:icon="@drawable/baseline_notifications_none_24"/>
+
+        <ListPreference
+            android:key="Lenguage"
+            android:title="@string/language"
+            android:layout="@layout/base_pref"
+            android:icon="@drawable/outline_g_translate_24"/>
+    </PreferenceCategory>
+</PreferenceScreen>
