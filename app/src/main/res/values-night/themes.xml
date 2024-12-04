@@ -18,15 +18,15 @@
         <item name="android:textColor">@color/black</item>
     </style>
     <style name="iconCoin">
-        <item name="android:src">@drawable/redeemnight</item>
+        <item name="android:src">@drawable/redeem_night</item>
     </style>
     <style name="iconHome">
-        <item name="android:src">@drawable/homenight</item>
+        <item name="android:src">@drawable/home_night</item>
     </style>
     <style name="iconGame">
-        <item name="android:src">@drawable/gamenight</item>
+        <item name="android:src">@drawable/game_night</item>
     </style>
     <style name="iconGameArrow">
-        <item name="android:src">@drawable/arrowgamenight</item>
+        <item name="android:src">@drawable/arrow_game_night</item>
     </style>
 </resources>

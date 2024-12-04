@@ -3,16 +3,6 @@
     <style name="Base.Theme.BetMasters" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
-        <color name="black">#FF000000</color>
-        <color name="white">#FFFFFFFF</color>
-        <color name="facebook_blue">#1877F2</color>
-        <color name="google_white">#D9D9D9</color>
-        <color name="fondo_switch_off">#D6E3F6</color>
-        <color name="boton_switch">#FFFFFF</color>
-        <color name="dark_blue">#0C5D7D</color>
-        <color name="cardview_filter">#0C5D7D</color>
-        <color name="cardview_matches">#D6E3F6</color>
-        <color name="grey_coins">#BDB4B4</color>
     </style>
 
     <style name="Theme.BetMasters" parent="Base.Theme.BetMasters" />
@@ -42,6 +32,6 @@
         <item name="android:src">@drawable/game</item>
     </style>
     <style name="iconGameArrow">
-        <item name="android:src">@drawable/arrowgame</item>
+        <item name="android:src">@drawable/arrow_game</item>
     </style>
 </resources>
