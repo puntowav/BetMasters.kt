@@ -2,11 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:background="@color/white"
     android:id="@+id/main"
+    style="@style/fondoApp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".Redeem">
 
 
@@ -18,54 +18,55 @@
         android:orientation="horizontal">
 
 
-    <ImageButton
-        android:id="@+id/btnPerfil"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_gravity="start|top"
-        android:layout_margin="16dp"
-        android:background="@drawable/round_button"
-        android:contentDescription="Botón de perfil"
-        android:elevation="4dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/account_24"/>
+        <ImageButton
+            android:id="@+id/btnPerfil"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="start|top"
+            android:layout_margin="16dp"
+            android:background="@drawable/round_button"
+            android:contentDescription="Botón de perfil"
+            android:elevation="4dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/account_24" />
 
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/fab_coins"
-        android:layout_width="80dp"
-        android:layout_height="35dp"
-        android:layout_gravity="end|top"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="8dp"
-        android:backgroundTint="#BDB4B4"
-        android:contentDescription="Botón monedas"
-        app:cardCornerRadius="8dp">
+        <androidx.cardview.widget.CardView
+            android:id="@+id/fab_coins"
+            style="@style/cardCoins"
+            android:layout_width="80dp"
+            android:layout_height="35dp"
+            android:layout_gravity="end|top"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
+            android:contentDescription="Botón monedas"
+            app:cardCornerRadius="8dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:src="@drawable/baseline_monetization_on_24" />
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:src="@drawable/baseline_monetization_on_24" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:text="Coins"
-                android:textStyle="bold" />
+                <TextView
+                    style="@style/textCoins"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="Coins"
+                    android:textStyle="bold" />
 
-        </LinearLayout>
+            </LinearLayout>
 
-    </androidx.cardview.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
     </FrameLayout>
 
@@ -73,413 +74,423 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:cardCornerRadius="16dp"
-        android:layout_margin="8dp">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="@color/cardview_matches">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:src="@drawable/g733"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="@color/white">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Logitech g733"
-                android:textColor="@color/black"/>
+            app:layout_constraintTop_toTopOf="parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="6000"
-                    android:textColor="@color/black"/>
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/coin_24"/>
-            </LinearLayout>
-
-
-        </LinearLayout>
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/white">
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom|end"
-                    android:backgroundTint="@color/cardview_filter"
-                    android:text="Redeem"
-                    android:textColor="@color/white"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginBottom="8dp"/>
-            </FrameLayout>
-        </LinearLayout>
-
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardCornerRadius="16dp"
-        android:layout_margin="8dp">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:background="@color/white">
-
-            <ImageView
-                android:id="@+id/txsteam"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:scaleType="fitXY"
-                android:src="@drawable/randomkey"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
-
-            <LinearLayout
-                android:id="@+id/price"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginTop="16dp"
-                app:layout_constraintStart_toEndOf="@id/txsteam"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/btnRedeem">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Random Key Stream"
-                    android:textColor="@color/black"/>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="1000"
-                        android:textColor="@color/black"/>
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/coin_24"/>
-                </LinearLayout>
-
-
-
-
-            </LinearLayout>
-
-            <Button
-                android:id="@+id/btnRedeem"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
-                android:backgroundTint="@color/cardview_filter"
-                android:text="Redeem"
-                android:textColor="@color/white"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.99" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </androidx.cardview.widget.CardView>
-
-    <HorizontalScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="200dp"
-            android:layout_height="250dp"
-            app:cardCornerRadius="16dp"
-            android:layout_margin="8dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
                 android:orientation="vertical">
-                <LinearLayout
-                    android:layout_width="200dp"
-                    android:layout_height="150dp"
-                    android:orientation="vertical"
-                    android:background="@color/cardview_matches">
 
-                    <ImageView
-                        android:layout_width="200dp"
-                        android:layout_height="150dp"
-                        android:src="@drawable/googleplay"/>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="@color/white">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Google Play Card"
-                        android:textColor="@color/black"/>
+                    android:layout_margin="8dp"
+                    app:cardCornerRadius="16dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:background="@color/white">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="2000"
-                            android:textColor="@color/black"/>
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/coin_24"/>
-                    </LinearLayout>
-
-
-                </LinearLayout>
-
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/white">
-
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="bottom|end"
-                        android:backgroundTint="@color/cardview_filter"
-                        android:text="Redeem"
-                        android:textColor="@color/white"
-                        android:layout_marginEnd="8dp"
-                        android:layout_marginBottom="8dp"/>
-                </FrameLayout>
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="200dp"
-                android:layout_height="250dp"
-                app:cardCornerRadius="16dp"
-                android:layout_margin="8dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-                    <LinearLayout
-                        android:layout_width="200dp"
-                        android:layout_height="150dp"
-                        android:orientation="vertical"
-                        android:background="@color/cardview_matches">
-
-                        <ImageView
-                            android:layout_width="200dp"
-                            android:layout_height="150dp"
-                            android:src="@drawable/applecard"/>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:background="@color/white">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="iTunes Card"
-                            android:textColor="@color/black"/>
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:background="@color/white">
+                            android:background="@color/cardview_matches"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="150dp"
+                                android:src="@drawable/g733" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            style="@style/fondoCardRedeem"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="2000"
-                                android:textColor="@color/black"/>
+                                android:text="Logitech g733"
+                                android:textColor="@color/black"
+                                android:layout_margin="8dp"/>
 
-                            <ImageView
-                                android:layout_width="wrap_content"
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:src="@drawable/coin_24"/>
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="6000"
+                                    android:textColor="@color/black"
+                                    android:layout_marginStart="8dp"/>
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/coin_24" />
+                            </LinearLayout>
+
+
                         </LinearLayout>
 
+                        <FrameLayout
+                            style="@style/fondoCardRedeem"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
 
+                            <Button
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="bottom|end"
+                                android:layout_marginEnd="8dp"
+                                android:layout_marginBottom="8dp"
+                                android:backgroundTint="@color/cardview_filter"
+                                android:text="Redeem"
+                                android:textColor="@color/white" />
+                        </FrameLayout>
                     </LinearLayout>
-                    <FrameLayout
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    app:cardCornerRadius="16dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        style="@style/fondoCardRedeem"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/white">
+                        android:orientation="horizontal">
 
-                        <Button
+                        <ImageView
+                            android:id="@+id/txsteam"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/randomkey"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <LinearLayout
+                            android:id="@+id/price"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="bottom|end"
+                            android:layout_marginTop="4dp"
+                            android:orientation="vertical"
+                            app:layout_constraintEnd_toStartOf="@+id/btnRedeem"
+                            app:layout_constraintStart_toEndOf="@id/txsteam"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Random Key Stream"
+                                android:textColor="@color/black"
+                                android:layout_margin="8dp"/>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:layout_marginBottom="8dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="1000"
+                                    android:textColor="@color/black"
+                                    android:layout_marginStart="8dp"/>
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/coin_24" />
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                        <Button
+                            android:id="@+id/btnRedeem"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginBottom="8dp"
                             android:backgroundTint="@color/cardview_filter"
                             android:text="Redeem"
                             android:textColor="@color/white"
-                            android:layout_marginEnd="8dp"
-                            android:layout_marginBottom="8dp"/>
-                    </FrameLayout>
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.99" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            app:cardCornerRadius="16dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_width="200dp"
+                                    android:layout_height="150dp"
+                                    android:background="@color/cardview_matches"
+                                    android:orientation="vertical">
+
+                                    <ImageView
+                                        android:layout_width="200dp"
+                                        android:layout_height="150dp"
+                                        android:src="@drawable/googleplay" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    style="@style/fondoCardRedeem"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Google Play Card"
+                                        android:textColor="@color/black"
+                                        android:layout_margin="8dp"/>
+
+                                    <LinearLayout
+                                        style="@style/fondoCardRedeem"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="2000"
+                                            android:textColor="@color/black"
+                                            android:layout_marginStart="8dp"/>
+
+                                        <ImageView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:src="@drawable/coin_24" />
+                                    </LinearLayout>
+
+
+                                </LinearLayout>
+
+                                <FrameLayout
+                                    style="@style/fondoCardRedeem"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                    <Button
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="bottom|end"
+                                        android:layout_marginEnd="8dp"
+                                        android:layout_marginBottom="8dp"
+                                        android:backgroundTint="@color/cardview_filter"
+                                        android:text="Redeem"
+                                        android:textColor="@color/white" />
+                                </FrameLayout>
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            app:cardCornerRadius="16dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_width="200dp"
+                                    android:layout_height="150dp"
+                                    android:background="@color/cardview_matches"
+                                    android:orientation="vertical">
+
+                                    <ImageView
+                                        android:layout_width="200dp"
+                                        android:layout_height="150dp"
+                                        android:src="@drawable/applecard" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    style="@style/fondoCardRedeem"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="iTunes Card"
+                                        android:textColor="@color/black"
+                                        android:layout_margin="8dp"/>
+
+                                    <LinearLayout
+                                        style="@style/fondoCardRedeem"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="2000"
+                                            android:textColor="@color/black"
+                                            android:layout_marginStart="8dp"/>
+
+                                        <ImageView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:src="@drawable/coin_24" />
+                                    </LinearLayout>
+
+
+                                </LinearLayout>
+
+                                <FrameLayout
+                                    style="@style/fondoCardRedeem"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                    <Button
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="bottom|end"
+                                        android:layout_marginEnd="8dp"
+                                        android:layout_marginBottom="8dp"
+                                        android:backgroundTint="@color/cardview_filter"
+                                        android:text="Redeem"
+                                        android:textColor="@color/white" />
+                                </FrameLayout>
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                    </LinearLayout>
+
+                </HorizontalScrollView>
+            </LinearLayout>
+        </ScrollView>
+
+
+        <LinearLayout
+            android:id="@+id/bottom_nav_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <FrameLayout
+                android:id="@+id/mainContent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <!-- Bottom Navigation Custom -->
+            <LinearLayout
+                android:id="@+id/bottomNavBar"
+                style="@style/fondoApp"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <!-- Elemento 1 -->
+                <LinearLayout
+                    android:id="@+id/iconRedeem"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+
+                        style="@style/iconCoin"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp" />
+
                 </LinearLayout>
 
-            </androidx.cardview.widget.CardView>
+                <!-- Elemento 2 -->
+                <LinearLayout
+                    android:id="@+id/iconHome"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
+                    <ImageView
+
+                        style="@style/iconHome"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp" />
+
+                </LinearLayout>
+
+                <!-- Elemento 3 -->
+                <LinearLayout
+                    android:id="@+id/iconGames"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+
+                        style="@style/iconGame"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp" />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
         </LinearLayout>
-
-    </HorizontalScrollView>
-    </LinearLayout>
-    </ScrollView>
-
-
-    <LinearLayout
-        android:id="@+id/bottom_nav_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent">
-
-        <FrameLayout
-            android:id="@+id/mainContent"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-        <!-- Bottom Navigation Custom -->
-        <LinearLayout
-            android:id="@+id/bottomNavBar"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:orientation="horizontal"
-            android:background="@color/white"
-            android:gravity="center">
-
-            <!-- Elemento 1 -->
-            <LinearLayout
-                android:id="@+id/iconRedeem"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageView
-
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/redeem"
-                    app:tint="@color/black"/>
-
-            </LinearLayout>
-
-            <!-- Elemento 2 -->
-            <LinearLayout
-                android:id="@+id/iconHome"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageView
-
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/home"
-                    app:tint="@color/black"/>
-
-            </LinearLayout>
-
-            <!-- Elemento 3 -->
-            <LinearLayout
-                android:id="@+id/iconGames"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageView
-
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/game"
-                    app:tint="@color/black"/>
-
-
-            </LinearLayout>
-
-        </LinearLayout>
-    </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </LinearLayout>

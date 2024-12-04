@@ -2,6 +2,8 @@ package com.example.betmasters
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.LinearLayout
@@ -20,8 +22,11 @@ class Home : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContentView(R.layout.home)
+
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN or
+                View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or
+                View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
 
         val openSheetButton: CardView = findViewById(R.id.card_filter_fav)
 
@@ -34,7 +39,6 @@ class Home : AppCompatActivity() {
         val homeItem: LinearLayout = findViewById(R.id.iconHome)
         val redeemItem: LinearLayout= findViewById(R.id.iconRedeem)
         val gamesItem: LinearLayout= findViewById(R.id.iconGames)
-        val settings: ImageButton = findViewById(R.id.btnPerfil)
 
         homeItem.setOnClickListener {
             navigateToActivity(Home::class.java)
@@ -48,10 +52,12 @@ class Home : AppCompatActivity() {
             navigateToActivity(Games::class.java)
         }
 
-        settings.setOnClickListener{
-            navigateToActivity(SettingsActivity::class.java)
-        }
 
+        val profileButton: ImageButton = findViewById(R.id.btnPerfil)
+
+        profileButton.setOnClickListener {
+            navigateToActivity(Perfil::class.java)
+        }
 
     }
     private fun navigateToActivity(activityClass: Class<*>) {

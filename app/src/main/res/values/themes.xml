@@ -6,4 +6,32 @@
     </style>
 
     <style name="Theme.BetMasters" parent="Base.Theme.BetMasters" />
+
+    <style name="fondoApp">
+        <item name="android:background">@color/white</item>
+    </style>
+    <style name="fondoCardRedeem">
+        <item name="android:background">@color/white</item>
+    </style>
+    <style name="cardCoins">
+        <item name="android:backgroundTint">@color/grey_coins</item>
+    </style>
+    <style name="cardGame">
+        <item name="android:backgroundTint">@color/grey_coins</item>
+    </style>
+    <style name="textCoins">
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="iconCoin">
+        <item name="android:src">@drawable/redeem</item>
+    </style>
+    <style name="iconHome">
+        <item name="android:src">@drawable/home</item>
+    </style>
+    <style name="iconGame">
+        <item name="android:src">@drawable/game</item>
+    </style>
+    <style name="iconGameArrow">
+        <item name="android:src">@drawable/arrow_game</item>
+    </style>
 </resources>
