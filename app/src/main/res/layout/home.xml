@@ -61,7 +61,8 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
                     android:text="Coins"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:fontFamily="@font/roboto_regular"/>
 
 
             </LinearLayout>
@@ -112,7 +113,8 @@
                         android:layout_marginBottom="4dp"
                         android:text="Add filter"
                         android:textColor="@color/white"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:fontFamily="@font/roboto_regular"/>
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
@@ -142,9 +144,10 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginBottom="4dp"
-                        android:text="Lol"
+                        android:text="LOL"
                         android:textColor="@color/white"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:fontFamily="@font/roboto_regular"/>
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
@@ -176,7 +179,8 @@
                         android:layout_marginBottom="4dp"
                         android:text="Valorant"
                         android:textColor="@color/white"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:fontFamily="@font/roboto_regular"/>
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
@@ -207,7 +211,8 @@
                         android:layout_marginBottom="4dp"
                         android:text="CSGO"
                         android:textColor="@color/white"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:fontFamily="@font/roboto_regular"/>
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
@@ -262,7 +267,8 @@
                                 android:layout_marginBottom="8dp"
                                 android:text="Mad Lions"
                                 android:textAlignment="center"
-                                android:textColor="@color/black" />
+                                android:textColor="@color/black"
+                                android:fontFamily="@font/roboto_regular"/>
 
                             <androidx.cardview.widget.CardView
                                 android:layout_width="75dp"
@@ -279,7 +285,8 @@
                                     android:layout_gravity="center"
                                     android:text="1.8"
                                     android:textColor="@color/white"
-                                    android:textStyle="bold" />
+                                    android:textStyle="bold"
+                                    android:fontFamily="@font/roboto_regular"/>
 
                             </androidx.cardview.widget.CardView>
 
@@ -306,7 +313,8 @@
                                 android:layout_marginBottom="8dp"
                                 android:text="Fnatic"
                                 android:textAlignment="center"
-                                android:textColor="@color/black" />
+                                android:textColor="@color/black"
+                                android:fontFamily="@font/roboto_regular"/>
 
                             <androidx.cardview.widget.CardView
                                 android:layout_width="75dp"
@@ -323,7 +331,8 @@
                                     android:layout_gravity="center"
                                     android:text="1.2"
                                     android:textColor="@color/white"
-                                    android:textStyle="bold" />
+                                    android:textStyle="bold"
+                                    android:fontFamily="@font/roboto_regular"/>
 
                             </androidx.cardview.widget.CardView>
 
@@ -342,7 +351,8 @@
                                 android:layout_margin="8dp"
                                 android:layout_weight="1"
                                 android:text="Liga LEC"
-                                android:textColor="@color/black" />
+                                android:textColor="@color/black"
+                                android:fontFamily="@font/roboto_regular"/>
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -351,7 +361,8 @@
                                 android:layout_margin="8dp"
                                 android:layout_weight="1"
                                 android:text="Fecha partido y hora"
-                                android:textColor="@color/black" />
+                                android:textColor="@color/black"
+                                android:fontFamily="@font/roboto_regular"/>
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -360,7 +371,8 @@
                                 android:layout_margin="8dp"
                                 android:layout_weight="0.1"
                                 android:text="Resultado"
-                                android:textColor="@color/black" />
+                                android:textColor="@color/black"
+                                android:fontFamily="@font/roboto_regular"/>
 
                         </LinearLayout>
 
@@ -399,7 +411,8 @@
                                 android:layout_marginBottom="8dp"
                                 android:text="T1"
                                 android:textAlignment="center"
-                                android:textColor="@color/black" />
+                                android:textColor="@color/black"
+                                android:fontFamily="@font/roboto_regular"/>
 
                             <androidx.cardview.widget.CardView
                                 android:layout_width="75dp"
@@ -416,7 +429,8 @@
                                     android:layout_gravity="center"
                                     android:text="2.1"
                                     android:textColor="@color/white"
-                                    android:textStyle="bold" />
+                                    android:textStyle="bold"
+                                    android:fontFamily="@font/roboto_regular"/>
 
                             </androidx.cardview.widget.CardView>
 
@@ -443,7 +457,8 @@
                                 android:layout_marginBottom="8dp"
                                 android:text="HLE"
                                 android:textAlignment="center"
-                                android:textColor="@color/black" />
+                                android:textColor="@color/black"
+                                android:fontFamily="@font/roboto_regular"/>
 
                             <androidx.cardview.widget.CardView
                                 android:layout_width="75dp"
@@ -460,7 +475,8 @@
                                     android:layout_gravity="center"
                                     android:text="2.3"
                                     android:textColor="@color/white"
-                                    android:textStyle="bold" />
+                                    android:textStyle="bold"
+                                    android:fontFamily="@font/roboto_regular"/>
 
                             </androidx.cardview.widget.CardView>
 
@@ -479,7 +495,8 @@
                                 android:layout_margin="8dp"
                                 android:layout_weight="1"
                                 android:text="Liga LCK"
-                                android:textColor="@color/black" />
+                                android:textColor="@color/black"
+                                android:fontFamily="@font/roboto_regular"/>
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -488,7 +505,8 @@
                                 android:layout_margin="8dp"
                                 android:layout_weight="1"
                                 android:text="Fecha partido y hora"
-                                android:textColor="@color/black" />
+                                android:textColor="@color/black"
+                                android:fontFamily="@font/roboto_regular"/>
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -536,7 +554,8 @@
                                 android:layout_marginBottom="8dp"
                                 android:text="Gen G"
                                 android:textAlignment="center"
-                                android:textColor="@color/black" />
+                                android:textColor="@color/black"
+                                android:fontFamily="@font/roboto_regular"/>
 
                             <androidx.cardview.widget.CardView
                                 android:layout_width="75dp"
@@ -553,7 +572,8 @@
                                     android:layout_gravity="center"
                                     android:text="1.2"
                                     android:textColor="@color/white"
-                                    android:textStyle="bold" />
+                                    android:textStyle="bold"
+                                    android:fontFamily="@font/roboto_regular"/>
 
                             </androidx.cardview.widget.CardView>
 
@@ -580,7 +600,8 @@
                                 android:layout_marginBottom="8dp"
                                 android:text="KT Rolster"
                                 android:textAlignment="center"
-                                android:textColor="@color/black" />
+                                android:textColor="@color/black"
+                                android:fontFamily="@font/roboto_regular"/>
 
                             <androidx.cardview.widget.CardView
                                 android:layout_width="75dp"
@@ -597,7 +618,8 @@
                                     android:layout_gravity="center"
                                     android:text="3.4"
                                     android:textColor="@color/white"
-                                    android:textStyle="bold" />
+                                    android:textStyle="bold"
+                                    android:fontFamily="@font/roboto_regular"/>
 
                             </androidx.cardview.widget.CardView>
 
@@ -615,8 +637,9 @@
                                 android:layout_gravity="center"
                                 android:layout_margin="8dp"
                                 android:layout_weight="1"
-                                android:text="Liga LEC"
-                                android:textColor="@color/black" />
+                                android:text="Liga LCK"
+                                android:textColor="@color/black"
+                                android:fontFamily="@font/roboto_regular"/>
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -625,7 +648,8 @@
                                 android:layout_margin="8dp"
                                 android:layout_weight="1"
                                 android:text="Fecha partido y hora"
-                                android:textColor="@color/black" />
+                                android:textColor="@color/black"
+                                android:fontFamily="@font/roboto_regular"/>
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -634,7 +658,8 @@
                                 android:layout_margin="8dp"
                                 android:layout_weight="0.1"
                                 android:text="Resultado"
-                                android:textColor="@color/black" />
+                                android:textColor="@color/black"
+                                android:fontFamily="@font/roboto_regular"/>
 
                         </LinearLayout>
 

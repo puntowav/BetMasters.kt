@@ -10,6 +10,9 @@
     <style name="fondoApp">
         <item name="android:background">@color/white</item>
     </style>
+    <style name="fondoBottomsheet">
+        <item name="android:background">@drawable/rounded_background</item>
+    </style>
     <style name="fondoCardRedeem">
         <item name="android:background">@color/white</item>
     </style>
@@ -21,6 +24,7 @@
     </style>
     <style name="textCoins">
         <item name="android:textColor">@color/black</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
     </style>
     <style name="iconCoin">
         <item name="android:src">@drawable/redeem</item>

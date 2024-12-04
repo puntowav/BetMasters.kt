@@ -122,7 +122,8 @@
                             android:layout_height="wrap_content"
                             android:text="Juego del Trilero"
                             android:textSize="20dp"
-                            style="@style/textCoins"/>
+                            style="@style/textCoins"
+                            android:fontFamily="@font/roboto_regular"/>
 
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -141,7 +142,8 @@
                                 android:layout_height="wrap_content"
                                 android:text="50"
                                 android:textSize="20dp"
-                                style="@style/textCoins"/>
+                                style="@style/textCoins"
+                                android:fontFamily="@font/roboto_regular"/>
 
                         </LinearLayout>
 
@@ -200,7 +202,8 @@
                             android:layout_height="wrap_content"
                             android:text="Juego de las Parejas"
                             android:textSize="20dp"
-                            style="@style/textCoins"/>
+                            style="@style/textCoins"
+                            android:fontFamily="@font/roboto_regular"/>
 
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -219,7 +222,8 @@
                                 android:layout_height="wrap_content"
                                 android:text="50"
                                 android:textSize="20dp"
-                                style="@style/textCoins"/>
+                                style="@style/textCoins"
+                                android:fontFamily="@font/roboto_regular"/>
 
                         </LinearLayout>
 
@@ -279,7 +283,8 @@
                             android:layout_height="wrap_content"
                             android:text="Juego de la Ruleta"
                             android:textSize="20dp"
-                            style="@style/textCoins"/>
+                            style="@style/textCoins"
+                            android:fontFamily="@font/roboto_regular"/>
 
                         <LinearLayout
                             android:layout_width="wrap_content"
