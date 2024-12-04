@@ -118,7 +118,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Logitech g733"
-                                android:textColor="@color/black" />
+                                android:textColor="@color/black"
+                                android:layout_margin="8dp"/>
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -129,7 +130,8 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="6000"
-                                    android:textColor="@color/black" />
+                                    android:textColor="@color/black"
+                                    android:layout_marginStart="8dp"/>
 
                                 <ImageView
                                     android:layout_width="wrap_content"
@@ -185,9 +187,8 @@
                             android:id="@+id/price"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="16dp"
+                            android:layout_marginTop="4dp"
                             android:orientation="vertical"
-                            app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toStartOf="@+id/btnRedeem"
                             app:layout_constraintStart_toEndOf="@id/txsteam"
                             app:layout_constraintTop_toTopOf="parent">
@@ -196,18 +197,21 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Random Key Stream"
-                                android:textColor="@color/black" />
+                                android:textColor="@color/black"
+                                android:layout_margin="8dp"/>
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:orientation="horizontal">
+                                android:orientation="horizontal"
+                                android:layout_marginBottom="8dp">
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="1000"
-                                    android:textColor="@color/black" />
+                                    android:textColor="@color/black"
+                                    android:layout_marginStart="8dp"/>
 
                                 <ImageView
                                     android:layout_width="wrap_content"
@@ -250,7 +254,7 @@
 
                         <androidx.cardview.widget.CardView
                             android:layout_width="200dp"
-                            android:layout_height="250dp"
+                            android:layout_height="wrap_content"
                             android:layout_margin="8dp"
                             app:cardCornerRadius="16dp">
 
@@ -282,7 +286,8 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="Google Play Card"
-                                        android:textColor="@color/black" />
+                                        android:textColor="@color/black"
+                                        android:layout_margin="8dp"/>
 
                                     <LinearLayout
                                         style="@style/fondoCardRedeem"
@@ -294,7 +299,8 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:text="2000"
-                                            android:textColor="@color/black" />
+                                            android:textColor="@color/black"
+                                            android:layout_marginStart="8dp"/>
 
                                         <ImageView
                                             android:layout_width="wrap_content"
@@ -326,7 +332,7 @@
 
                         <androidx.cardview.widget.CardView
                             android:layout_width="200dp"
-                            android:layout_height="250dp"
+                            android:layout_height="wrap_content"
                             android:layout_margin="8dp"
                             app:cardCornerRadius="16dp">
 
@@ -358,7 +364,8 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="iTunes Card"
-                                        android:textColor="@color/black" />
+                                        android:textColor="@color/black"
+                                        android:layout_margin="8dp"/>
 
                                     <LinearLayout
                                         style="@style/fondoCardRedeem"
@@ -370,7 +377,8 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:text="2000"
-                                            android:textColor="@color/black" />
+                                            android:textColor="@color/black"
+                                            android:layout_marginStart="8dp"/>
 
                                         <ImageView
                                             android:layout_width="wrap_content"
