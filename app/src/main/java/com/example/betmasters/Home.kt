@@ -40,10 +40,6 @@ class Home : AppCompatActivity() {
         val redeemItem: LinearLayout= findViewById(R.id.iconRedeem)
         val gamesItem: LinearLayout= findViewById(R.id.iconGames)
 
-        homeItem.setOnClickListener {
-            navigateToActivity(Home::class.java)
-        }
-
         redeemItem.setOnClickListener {
             navigateToActivity(Redeem::class.java)
         }
