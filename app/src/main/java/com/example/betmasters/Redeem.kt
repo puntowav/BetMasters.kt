@@ -28,10 +28,6 @@ class Redeem : AppCompatActivity() {
             navigateToActivity(Home::class.java)
         }
 
-        redeemItem.setOnClickListener {
-            navigateToActivity(Redeem::class.java)
-        }
-
         gamesItem.setOnClickListener {
             navigateToActivity(Games::class.java)
         }

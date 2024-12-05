@@ -32,10 +32,6 @@ class Games : AppCompatActivity() {
             navigateToActivity(Redeem::class.java)
         }
 
-        gamesItem.setOnClickListener {
-            navigateToActivity(Games::class.java)
-        }
-
 
         val profileButton: ImageButton = findViewById(R.id.btnPerfil)
 
