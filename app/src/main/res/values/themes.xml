@@ -42,4 +42,7 @@
     <style name="iconArrowBack">
         <item name="android:background">@drawable/baseline_arrow_back_ios_new_24</item>
     </style>
+    <style name="lenguage">
+        <item name="android:src">@drawable/outline_g_translate_24</item>
+    </style>
 </resources>

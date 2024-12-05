@@ -35,6 +35,7 @@ class MainActivity : AppCompatActivity() {
         homeButton.setOnClickListener{
             val intent = Intent(this, Home::class.java)
             startActivity(intent)
+            finish()
         }
 
 
