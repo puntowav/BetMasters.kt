@@ -7,6 +7,7 @@
 
     <style name="fondoApp">
         <item name="android:background">#393737</item>
+        <item name="android:statusBarColor">#393737</item>
     </style>
     <style name="fondoCardRedeem">
         <item name="android:background">#ABA0A0</item>
@@ -28,5 +29,8 @@
     </style>
     <style name="iconGameArrow">
         <item name="android:src">@drawable/arrow_game_night</item>
+    </style>
+    <style name="iconArrowBack">
+        <item name="android:background">@drawable/baseline_arrow_back_ios_new_24_night</item>
     </style>
 </resources>
