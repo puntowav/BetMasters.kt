@@ -18,10 +18,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
-        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN or
-                View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or
-                View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-
         val sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this)
         val isNightMode = sharedPrefs.getBoolean("nightMode", false)
         if (isNightMode) {

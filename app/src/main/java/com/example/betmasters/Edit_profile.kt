@@ -16,10 +16,6 @@ class Edit_profile : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(layout.activity_edit_profile)
 
-        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN or
-                View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or
-                View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-
         val backBtn = findViewById<ImageButton>(R.id.btnBack)
         val source = intent.getStringExtra("source")
 

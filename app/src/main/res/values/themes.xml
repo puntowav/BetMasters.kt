@@ -1,22 +1,23 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.BetMasters" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="android:statusBarColor">@color/white</item>
+        <item name="android:navigationBarColor">@color/white</item>
     </style>
 
     <style name="Theme.BetMasters" parent="Base.Theme.BetMasters" />
 
     <style name="fondoApp">
-        <item name="android:background">@color/white</item>
-        <item name="android:statusBarColor">@color/white</item>
-        <item name="android:navigationBarColor">@color/white</item>
+        <item name="android:background">@color/input</item>
+    </style>
+    <style name="desplegable">
+        <item name="android:background">@color/black</item>
     </style>
     <style name="fondoBottomsheet">
         <item name="android:background">@drawable/rounded_background</item>
     </style>
     <style name="fondoCardRedeem">
-        <item name="android:background">@color/white</item>
+        <item name="android:background">@color/input</item>
     </style>
     <style name="cardCoins">
         <item name="android:backgroundTint">@color/dark_blue</item>

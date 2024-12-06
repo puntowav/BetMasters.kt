@@ -6,8 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".SettingsActivity"
-    style="@style/fondoApp">
+    tools:context=".SettingsActivity">
     <FrameLayout
         android:id="@+id/framely_buttons"
         android:layout_width="match_parent"

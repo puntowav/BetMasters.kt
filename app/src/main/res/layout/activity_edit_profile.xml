@@ -3,7 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/main"
-    style="@style/fondoApp"
     android:theme="@style/Theme.BetMasters"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="16dp">
@@ -159,9 +158,10 @@
             android:id="@+id/save_button"
             android:layout_width="345dp"
             android:layout_height="48dp"
-            android:textSize="18sp"
             android:background="@drawable/round_button"
-            app:backgroundTint="@color/dark_blue"
-            android:text="@string/guardar" />
+            android:text="@string/guardar"
+            android:textSize="18sp"
+            android:textColor="@android:color/white"
+            app:backgroundTint="@color/dark_blue" />
     </LinearLayout>
 </ScrollView>

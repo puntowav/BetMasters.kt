@@ -24,9 +24,13 @@
             android:icon="@drawable/baseline_notifications_none_24" />
 
         <ListPreference
-            android:key="Lenguage"
+            android:key="language"
             android:title="@string/language"
-            android:layout="@layout/base_pref"
-            android:icon="@drawable/outline_g_translate_24"/>
+            android:summary="%s"
+            android:entries="@array/language_entries"
+            android:entryValues="@array/language_values"
+            android:defaultValue="en"
+            android:icon="@drawable/outline_g_translate_24"
+            android:layout="@layout/base_pref"/>
     </PreferenceCategory>
 </PreferenceScreen>
