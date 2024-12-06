@@ -11,7 +11,8 @@
         android:layout_height="match_parent"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:text="Tu cuenta"
+        style="@style/textNormal"
+        android:text="@string/tu_cuenta"
         android:layout_marginBottom="8dp"/>
 
     <LinearLayout
@@ -39,6 +40,7 @@
                 android:id="@android:id/title"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
+                style="@style/textNormal"
                 android:textSize="16sp"
                 android:textColor="?android:attr/textColorPrimary" />
 
@@ -46,6 +48,7 @@
                 android:id="@android:id/summary"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
+                style="@style/textNormal"
                 android:textSize="11sp"/>
         </LinearLayout>
 
@@ -64,6 +67,7 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:textSize="12sp"
+        style="@style/textNormal"
         android:layout_marginTop="16dp"
-        android:text="Centro de personalizacion de cuenta y de experiecnia de usuario de BetMasters" />
+        android:text="@string/centro_de_personalizacion" />
 </LinearLayout>

@@ -53,7 +53,7 @@
                     android:layout_height="20dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
-                    android:src="@drawable/baseline_monetization_on_24" />
+                    style="@style/iconCoin" />
 
                 <TextView
                     style="@style/textCoins"
@@ -61,7 +61,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
-                    android:text="Coins"
+                    android:text="@string/coins"
                     android:textStyle="bold" />
 
             </LinearLayout>
@@ -117,10 +117,9 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Logitech g733"
-                                android:textColor="@color/black"
+                                android:text="@string/logitech_g733"
                                 android:layout_margin="8dp"
-                                android:fontFamily="@font/roboto_regular"/>
+                                style="@style/textNormal"/>
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -131,16 +130,14 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="6000"
-                                    android:textColor="@color/black"
                                     android:layout_marginStart="8dp"
-                                    android:fontFamily="@font/roboto_regular"/>
+                                    style="@style/textNormal"/>
 
                                 <ImageView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:src="@drawable/coin_24" />
+                                    style="@style/iconCoin2" />
                             </LinearLayout>
-
 
                         </LinearLayout>
 
@@ -198,10 +195,9 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Random Key Stream"
-                                android:textColor="@color/black"
+                                android:text="@string/random_key_stream"
                                 android:layout_margin="8dp"
-                                android:fontFamily="@font/roboto_regular"/>
+                                style="@style/textNormal"/>
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -213,14 +209,13 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="1000"
-                                    android:textColor="@color/black"
                                     android:layout_marginStart="8dp"
-                                    android:fontFamily="@font/roboto_regular"/>
+                                    style="@style/textNormal"/>
 
                                 <ImageView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:src="@drawable/coin_24" />
+                                    style="@style/iconCoin2" />
                             </LinearLayout>
 
 
@@ -289,10 +284,9 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="Google Play Card"
-                                        android:textColor="@color/black"
+                                        android:text="@string/google_play_card"
                                         android:layout_margin="8dp"
-                                        android:fontFamily="@font/roboto_regular"/>
+                                        style="@style/textNormal"/>
 
                                     <LinearLayout
                                         style="@style/fondoCardRedeem"
@@ -304,14 +298,13 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:text="2000"
-                                            android:textColor="@color/black"
                                             android:layout_marginStart="8dp"
-                                            android:fontFamily="@font/roboto_regular"/>
+                                            style="@style/textNormal"/>
 
                                         <ImageView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
-                                            android:src="@drawable/coin_24" />
+                                            style="@style/iconCoin2" />
                                     </LinearLayout>
 
 
@@ -369,10 +362,9 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="iTunes Card"
-                                        android:textColor="@color/black"
+                                        android:text="@string/itunes_card"
                                         android:layout_margin="8dp"
-                                        android:fontFamily="@font/roboto_regular"/>
+                                        style="@style/textNormal"/>
 
                                     <LinearLayout
                                         style="@style/fondoCardRedeem"
@@ -384,14 +376,13 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:text="2000"
-                                            android:textColor="@color/black"
                                             android:layout_marginStart="8dp"
-                                            android:fontFamily="@font/roboto_regular"/>
+                                            style="@style/textNormal"/>
 
                                         <ImageView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
-                                            android:src="@drawable/coin_24" />
+                                            style="@style/iconCoin2" />
                                     </LinearLayout>
 
 
@@ -455,7 +446,7 @@
 
                     <ImageView
 
-                        style="@style/iconCoin"
+                        style="@style/iconCoin2"
                         android:layout_width="24dp"
                         android:layout_height="24dp" />
 

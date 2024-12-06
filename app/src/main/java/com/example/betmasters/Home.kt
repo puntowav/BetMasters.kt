@@ -10,15 +10,13 @@ import android.widget.LinearLayout
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class Home : AppCompatActivity() {
-
-
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +32,6 @@ class Home : AppCompatActivity() {
             val bottomSheet = ExpandableCardActivity()
             bottomSheet.show(supportFragmentManager, bottomSheet.tag)
         }
-
 
         val homeItem: LinearLayout = findViewById(R.id.iconHome)
         val redeemItem: LinearLayout= findViewById(R.id.iconRedeem)
@@ -52,7 +49,9 @@ class Home : AppCompatActivity() {
         val profileButton: ImageButton = findViewById(R.id.btnPerfil)
 
         profileButton.setOnClickListener {
-            navigateToActivity(SettingsActivity::class.java)
+            val intent = Intent(this, SettingsActivity::class.java)
+            intent.putExtra("source", "home")
+            startActivity(intent)
         }
 
     }

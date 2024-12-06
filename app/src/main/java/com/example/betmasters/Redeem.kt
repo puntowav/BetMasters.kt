@@ -20,33 +20,35 @@ class Redeem : AppCompatActivity() {
                 View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or
                 View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
 
-        val homeItem: LinearLayout = findViewById(R.id.iconHome)
-        val redeemItem: LinearLayout = findViewById(R.id.iconRedeem)
-        val gamesItem: LinearLayout = findViewById(R.id.iconGames)
+ val homeItem: LinearLayout = findViewById(R.id.iconHome)
+ val redeemItem: LinearLayout = findViewById(R.id.iconRedeem)
+ val gamesItem: LinearLayout = findViewById(R.id.iconGames)
 
-        homeItem.setOnClickListener {
-            navigateToActivity(Home::class.java)
-        }
+ homeItem.setOnClickListener {
+     navigateToActivity(Home::class.java)
+ }
 
-        gamesItem.setOnClickListener {
-            navigateToActivity(Games::class.java)
-        }
+ gamesItem.setOnClickListener {
+     navigateToActivity(Games::class.java)
+ }
 
 
-        val profileButton: ImageButton = findViewById(R.id.btnPerfil)
+ val profileButton: ImageButton = findViewById(R.id.btnPerfil)
 
-        profileButton.setOnClickListener {
-            navigateToActivity(SettingsActivity::class.java)
-        }
+ profileButton.setOnClickListener {
+     val intent = Intent(this, SettingsActivity::class.java)
+     intent.putExtra("source", "redeem")
+     startActivity(intent)
+ }
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
-    }
-    private fun navigateToActivity(activityClass: Class<*>) {
-        val intent = Intent(this, activityClass)
-        startActivity(intent)
-    }
+ ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+     val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+     v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+     insets
+ }
+}
+private fun navigateToActivity(activityClass: Class<*>) {
+ val intent = Intent(this, activityClass)
+ startActivity(intent)
+}
 }

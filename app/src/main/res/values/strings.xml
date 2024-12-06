@@ -12,4 +12,25 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="notifications">Notifications</string>
     <string name="language">Language</string>
+    <string name="cambiar_foto_de_perfil">Cambiar Foto de Perfil</string>
+    <string name="guardar">Guardar</string>
+    <string name="password">Password</string>
+    <string name="phone">Phone</string>
+    <string name="mail">Mail</string>
+    <string name="name">Name</string>
+    <string name="centro_de_personalizacion">Centro de personalizacion de cuenta y de experiecnia de usuario de BetMasters</string>
+    <string name="tu_cuenta">Tu cuenta</string>
+    <string name="juego_parejas">Juego de las Parejas</string>
+    <string name="juego_ruleta">Juego de la Ruleta</string>
+    <string name="juego_trilero">Juego del Trilero</string>
+    <string name="logitech_g733">Logitech g733</string>
+    <string name="random_key_stream">Random Key Stream</string>
+    <string name="google_play_card">Google Play Card</string>
+    <string name="itunes_card">iTunes Card</string>
+    <string name="coins">Coins</string>
+    <string name="resultado">Resultado</string>
+    <string name="fecha_partido_y_hora">Fecha partido y hora</string>
+    <string name="liga_lck">Liga LCK</string>
+    <string name="_3_4">3.4</string>
+    <string name="kt_rolster">KT Rolster</string>
 </resources>

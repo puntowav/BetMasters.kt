@@ -8,16 +8,19 @@
             android:title="Preferencias de cuenta"
             android:layout="@layout/acc_card"
             android:icon="@drawable/account_24"
+            android:background="@drawable/round_button"
             android:summary="Contraseña, seguridad, detalles pesonales, añadir preferecnias"/>
 
         <SwitchPreference
             android:key="nightMode"
             android:title="@string/nightmode"
+            style="@style/textNormal"
             android:icon="@drawable/outline_nightlight_24"/>
 
         <SwitchPreference
             android:key="Notifications"
             android:title="@string/notifications"
+            style="@style/textNormal"
             android:icon="@drawable/baseline_notifications_none_24" />
 
         <ListPreference

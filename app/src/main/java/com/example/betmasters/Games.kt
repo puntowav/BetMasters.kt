@@ -36,7 +36,9 @@ class Games : AppCompatActivity() {
         val profileButton: ImageButton = findViewById(R.id.btnPerfil)
 
         profileButton.setOnClickListener {
-            navigateToActivity(SettingsActivity::class.java)
+            val intent = Intent(this, SettingsActivity::class.java)
+            intent.putExtra("source", "games")
+            startActivity(intent)
         }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->

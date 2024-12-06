@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="black">#222222</color>
+    <color name="white">#f9f9f9</color>
+    <color name="input">#e0e0e0</color>
+    <color name="soft_blue">#E4F0FF</color>
     <color name="facebook_blue">#1877F2</color>
     <color name="google_white">#D9D9D9</color>
     <color name="fondo_switch_off">#D6E3F6</color>
@@ -10,5 +12,5 @@
     <color name="cardview_filter">#0C5D7D</color>
     <color name="cardview_matches">#D6E3F6</color>
     <color name="grey_coins">#BDB4B4</color>
-
+    <color name="handle_background">#cccccc</color>
 </resources>

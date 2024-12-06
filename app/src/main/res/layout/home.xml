@@ -9,7 +9,6 @@
     android:orientation="vertical"
     tools:context=".Home">
 
-    <!-- Frame Layout donde estarán los botones -->
     <FrameLayout
         android:id="@+id/framely_buttons"
         android:layout_width="match_parent"
@@ -52,7 +51,7 @@
                     android:layout_height="20dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
-                    android:src="@drawable/baseline_monetization_on_24" />
+                    style="@style/iconCoin" />
 
                 <TextView
                     style="@style/textCoins"
@@ -72,7 +71,6 @@
 
     </FrameLayout>
 
-    <!-- Contenedor horizontal para los CardView -->
     <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -83,7 +81,6 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <!-- CardView 1 -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_filter_fav"
                 android:layout_width="120dp"
@@ -598,7 +595,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="8dp"
                                 android:layout_marginBottom="8dp"
-                                android:text="KT Rolster"
+                                android:text="@string/kt_rolster"
                                 android:textAlignment="center"
                                 android:textColor="@color/black"
                                 android:fontFamily="@font/roboto_regular"/>
@@ -616,7 +613,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
-                                    android:text="3.4"
+                                    android:text="@string/_3_4"
                                     android:textColor="@color/white"
                                     android:textStyle="bold"
                                     android:fontFamily="@font/roboto_regular"/>
@@ -637,7 +634,7 @@
                                 android:layout_gravity="center"
                                 android:layout_margin="8dp"
                                 android:layout_weight="1"
-                                android:text="Liga LCK"
+                                android:text="@string/liga_lck"
                                 android:textColor="@color/black"
                                 android:fontFamily="@font/roboto_regular"/>
 
@@ -647,7 +644,7 @@
                                 android:layout_gravity="center"
                                 android:layout_margin="8dp"
                                 android:layout_weight="1"
-                                android:text="Fecha partido y hora"
+                                android:text="@string/fecha_partido_y_hora"
                                 android:textColor="@color/black"
                                 android:fontFamily="@font/roboto_regular"/>
 
@@ -657,7 +654,7 @@
                                 android:layout_gravity="center"
                                 android:layout_margin="8dp"
                                 android:layout_weight="0.1"
-                                android:text="Resultado"
+                                android:text="@string/resultado"
                                 android:textColor="@color/black"
                                 android:fontFamily="@font/roboto_regular"/>
 
@@ -702,7 +699,7 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        style="@style/iconCoin"
+                        style="@style/iconCoin2"
                         android:layout_width="24dp"
                         android:layout_height="24dp" />
 

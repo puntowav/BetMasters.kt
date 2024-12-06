@@ -13,23 +13,31 @@
         android:theme="@style/Theme.BetMasters"
         tools:targetApi="31">
         <activity
+            android:name=".Edit_profile"
+            android:exported="false"
+            android:theme="@style/Theme.BetMasters"/>
+        <activity
             android:name=".SettingsActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.BetMasters"/>
         <activity
             android:name=".Games"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.BetMasters"/>
         <activity
             android:name=".Redeem"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.BetMasters"/>
         <activity
             android:name=".Home"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.BetMasters"/>
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.BetMasters">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

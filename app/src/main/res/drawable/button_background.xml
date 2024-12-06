@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
     <!-- Fondo sólido del botón -->
-    <solid android:color="#0C5D7D" />  <!-- Color de fondo del botón -->
+    <solid android:color="@color/dark_blue" />  <!-- Color de fondo del botón -->
     <!-- Sin bordes redondeados -->
     <corners android:radius="0dp" />  <!-- Esto asegura que los bordes sean rectos -->
 </shape>
