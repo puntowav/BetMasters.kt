@@ -14,13 +14,11 @@
         <SwitchPreference
             android:key="nightMode"
             android:title="@string/nightmode"
-            style="@style/textNormal"
             android:icon="@drawable/outline_nightlight_24"/>
 
         <SwitchPreference
             android:key="Notifications"
             android:title="@string/notifications"
-            style="@style/textNormal"
             android:icon="@drawable/baseline_notifications_none_24" />
 
         <ListPreference
