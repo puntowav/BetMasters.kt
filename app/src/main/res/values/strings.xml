@@ -33,4 +33,8 @@
     <string name="liga_lck">Liga LCK</string>
     <string name="_3_4">3.4</string>
     <string name="kt_rolster">KT Rolster</string>
+    <string name="user_name">John Henry</string>
+    <string name="user_mail">wahdanalfhat@gmail.com</string>
+    <string name="user_phone">+6281221447884</string>
+    <string name="user_password">1234567890</string>
 </resources>

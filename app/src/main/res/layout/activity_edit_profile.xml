@@ -68,6 +68,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/name"
+                android:fontFamily="@font/roboto_medium"
                 android:textSize="18dp"
                 android:layout_marginBottom="8dp"/>
             <EditText
@@ -77,8 +78,9 @@
                 android:inputType="text"
                 android:background="@drawable/edittext_background"
                 android:layout_marginBottom="16dp"
+                android:fontFamily="@font/roboto_medium"
                 style="@style/textInput"
-                android:text="John Henry"
+                android:text="@string/user_name"
                 android:paddingStart="16dp"/>
         </LinearLayout>
 
@@ -93,6 +95,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/mail"
                 android:textSize="18dp"
+                android:fontFamily="@font/roboto_medium"
                 android:layout_marginBottom="8dp"/>
             <EditText
                 android:id="@+id/mailEdit"
@@ -102,7 +105,8 @@
                 android:background="@drawable/edittext_background"
                 android:layout_marginBottom="16dp"
                 style="@style/textInput"
-                android:text="wahdanalfhat@gmail.com"
+                android:fontFamily="@font/roboto_medium"
+                android:text="@string/user_mail"
                 android:paddingStart="16dp"/>
         </LinearLayout>
 
@@ -116,6 +120,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/phone"
+                android:fontFamily="@font/roboto_medium"
                 android:textSize="18dp"
                 android:layout_marginBottom="8dp"/>
             <EditText
@@ -125,8 +130,9 @@
                 android:inputType="text"
                 android:background="@drawable/edittext_background"
                 android:layout_marginBottom="16dp"
+                android:fontFamily="@font/roboto_medium"
                 style="@style/textInput"
-                android:text="+6281221447884"
+                android:text="@string/user_phone"
                 android:paddingStart="16dp"/>
         </LinearLayout>
 
@@ -140,6 +146,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/password"
+                android:fontFamily="@font/roboto_medium"
                 android:textSize="18dp"
                 android:layout_marginBottom="8dp"/>
             <EditText
@@ -149,8 +156,9 @@
                 android:inputType="textPassword"
                 android:background="@drawable/edittext_background"
                 android:layout_marginBottom="16dp"
+                android:fontFamily="@font/roboto_medium"
                 style="@style/textInput"
-                android:text="1234567890"
+                android:text="@string/user_password"
                 android:paddingStart="16dp"/>
         </LinearLayout>
 
@@ -160,6 +168,7 @@
             android:layout_height="48dp"
             android:background="@drawable/round_button"
             android:text="@string/guardar"
+            android:fontFamily="@font/roboto_medium"
             android:textSize="18sp"
             android:textColor="@android:color/white"
             app:backgroundTint="@color/dark_blue" />
