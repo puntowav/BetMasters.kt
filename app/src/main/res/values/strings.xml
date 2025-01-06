@@ -37,4 +37,6 @@
     <string name="user_mail">wahdanalfhat@gmail.com</string>
     <string name="user_phone">+6281221447884</string>
     <string name="user_password">1234567890</string>
+    <string name="sumarry_profile">Contraseña, seguridad, detalles pesonales, añadir preferecnias</string>
+    <string name="prefernces">Preferencias de cuenta</string>
 </resources>

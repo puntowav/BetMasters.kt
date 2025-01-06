@@ -19,7 +19,6 @@ class SettingsActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_settings2)
 
-
         val backBtn = findViewById<ImageButton>(R.id.btnBack)
 
         val source = intent.getStringExtra("source")
@@ -29,13 +28,8 @@ class SettingsActivity : AppCompatActivity() {
         val settingsFragment = SettingsFragment()
          settingsFragment.arguments = bundle
 
-        backBtn.setOnClickListener {v ->
-            val source = intent.getStringExtra("source")
-            when (source){
-                "home" -> startActivity(Intent(this, Home::class.java))
-                "redeem" -> startActivity(Intent(this, Redeem::class.java))
-                "games" -> startActivity(Intent(this, Games::class.java))
-            }
+        backBtn.setOnClickListener {
+            finish()
         }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->

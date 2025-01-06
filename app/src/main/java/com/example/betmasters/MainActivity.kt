@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         val homeButton: Button = findViewById(R.id.singIn)
 
         homeButton.setOnClickListener{
-            val intent = Intent(this, Home::class.java)
+            val intent = Intent(this, Main::class.java)
             startActivity(intent)
             finish()
         }

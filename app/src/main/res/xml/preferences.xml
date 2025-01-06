@@ -5,11 +5,11 @@
 
         <Preference
             android:key="custom_profile"
-            android:title="Preferencias de cuenta"
+            android:title="@string/prefernces"
             android:layout="@layout/acc_card"
             android:icon="@drawable/account_24"
             android:background="@drawable/round_button"
-            android:summary="Contraseña, seguridad, detalles pesonales, añadir preferecnias"/>
+            android:summary="@string/sumarry_profile"/>
 
         <SwitchPreference
             android:key="nightMode"
