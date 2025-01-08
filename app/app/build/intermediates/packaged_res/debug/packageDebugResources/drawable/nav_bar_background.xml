@@ -1,0 +1,9 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@android:color/white"/> <!-- Fondo blanco -->
+    <item>
+        <shape xmlns:android="http://schemas.android.com/apk/res/android">
+            <solid android:color="#929ED6"/> <!-- Color de fondo para la barra -->
+            <corners android:radius="20dp"/> <!-- Esquinas redondeadas -->
+        </shape>
+    </item>
+</layer-list>

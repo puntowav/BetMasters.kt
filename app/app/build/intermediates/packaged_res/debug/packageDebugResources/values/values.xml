@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="azulCardBet">#043EFE</color>
+    <color name="backAzulClarito">#D6E3F6</color>
+    <color name="backgroundGameDetails">#D9D9D9</color>
+    <color name="black">#FF000000</color>
+    <color name="cardBackground">#0C5D7D</color>
+    <color name="cardBackgroundSelected">#083F56</color>
+    <color name="gris">#C7C7C7</color>
+    <color name="grisBtnBetOff">#939191</color>
+    <color name="rojo">#FF0000</color>
+    <color name="verdeAgree">#12CB12</color>
+    <color name="white">#FFFFFFFF</color>
+    <dimen name="design_bottom_navigation_icon_size">24dp</dimen>
+    <string name="app_name">BetMasterBeta</string>
+    <style name="ActiveTextStyle" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="Base.Theme.BetMasterBeta" parent="Theme.Material3.DayNight.NoActionBar">
+        
+        
+    </style>
+    <style name="CustomBottomNavigation" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="itemIconSize">24dp</item>
+        <item name="itemTextAppearanceActive">@style/ActiveTextStyle</item>
+        <item name="itemTextAppearanceInactive">@style/InactiveTextStyle</item>
+    </style>
+    <style name="InactiveTextStyle" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="Theme.BetMasterBeta" parent="Base.Theme.BetMasterBeta"/>
+    <style name="betButton">
+        <item name="android:backgroundTint">#939191</item>
+        <item name="android:background">@drawable/custom_button_background</item>
+    </style>
+    <style name="cardCoinBet">
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_height">30dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:padding">4dp</item>
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:layout_marginBottom">4dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+    <style name="imgTeamFav">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+    <style name="leagueHeader">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">@color/backAzulClarito</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:visibility">gone</item>
+    </style>
+    <style name="linearLayoutCard">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:clickable">false</item>
+        <item name="android:focusable">false</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center</item>
+    </style>
+    <style name="overlayCorazon">
+        <item name="android:layout_width">35dp</item>
+        <item name="android:layout_height">35dp</item>
+        <item name="android:src">@drawable/fav</item>
+        <item name="android:alpha">0.7</item>
+        <item name="android:layout_gravity">top|end</item>
+    </style>
+    <style name="textCardCoinBet">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">16dp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="txtTeamFav">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:layout_marginBottom">8dp</item>
+    </style>
+</resources>

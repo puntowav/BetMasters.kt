@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="cardBackground">#0C5D7D</color>
+    <color name="cardBackgroundSelected">#083F56</color>
+    <color name="backAzulClarito">#D6E3F6</color>
+    <color name="azulCardBet">#043EFE</color>
+    <color name="backgroundGameDetails">#D9D9D9</color>
+    <color name="gris">#C7C7C7</color>
+    <color name="grisBtnBetOff">#939191</color>
+    <color name="verdeAgree">#12CB12</color>
+    <color name="rojo">#FF0000</color>
+
+
+</resources>
