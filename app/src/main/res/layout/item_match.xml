@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="8dp"
+    android:backgroundTint="#D6E3F6"
+    app:cardCornerRadius="16dp"
+    android:visibility="visible">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/ivTeam1"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_gravity="start"
+                android:layout_margin="8dp"
+                android:src="@drawable/mad" />
+
+            <TextView
+                android:id="@+id/tvTeam1"
+                android:layout_width="75dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="8dp"
+                android:textColor="@color/black"
+                android:text="MadLions"
+                android:textAlignment="center" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="75dp"
+                android:layout_height="35dp"
+                android:layout_gravity="start"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="8dp"
+                android:backgroundTint="#0C5D7D"
+                app:cardCornerRadius="8dp">
+
+                <TextView
+                    android:id="@+id/tvMulti1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="1.8"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+            </androidx.cardview.widget.CardView>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/ivTeam2"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_gravity="start"
+                android:layout_margin="8dp"
+                android:src="@drawable/fnatic" />
+
+            <TextView
+                android:id="@+id/tvTeam2"
+                android:layout_width="75dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="Fnatic"
+                android:textAlignment="center" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="75dp"
+                android:layout_height="35dp"
+                android:layout_gravity="start"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="8dp"
+                android:backgroundTint="#0C5D7D"
+                app:cardCornerRadius="8dp">
+
+                <TextView
+                    android:id="@+id/tvMulti2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="1.2"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvLiga"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:text="Liga LEC" />
+
+            <TextView
+                android:id="@+id/tvFecha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:text="Fecha partido y hora" />
+
+            <TextView
+                android:id="@+id/tvResultado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:layout_margin="8dp"
+                android:layout_weight="0.1"
+                android:text="Resultado" />
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+</androidx.cardview.widget.CardView>
