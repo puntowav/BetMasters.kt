@@ -5,10 +5,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
 
-class BetAdapter(var bets: List<Bet>, private val fragment: HomeFragment):RecyclerView.Adapter<BetsViewHolder>(){
+class BetAdapter(var bets: List<Bet>, private val callBack: DialogCallBack):RecyclerView.Adapter<BetsViewHolder>(){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BetsViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_mybet, parent, false)
-        return BetsViewHolder(view, fragment)
+        return BetsViewHolder(view, callBack)
     }
 
     override fun onBindViewHolder(holder: BetsViewHolder, position: Int) {
