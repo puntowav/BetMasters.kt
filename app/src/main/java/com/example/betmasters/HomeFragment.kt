@@ -1,7 +1,6 @@
 package com.example.betmasters
 
 import CategoriesAdapter
-import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,7 +9,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import android.widget.Button
 import android.widget.TextView
 import com.google.android.material.button.MaterialButton
 
@@ -71,13 +69,6 @@ class HomeFragment : Fragment(), DialogCallBack {
         initComponent(view)
         initUI(view)
         updateCoins()
-
-        val buttonShowDialog = view.findViewById<MaterialButton>(R.id.fabMisApuestas)
-        buttonShowDialog.setOnClickListener {
-            // Instancia y muestra el DialogFragment
-            val dialogFragment = MyBetsDialogFragment(MainActivity())
-            dialogFragment.show(parentFragmentManager, "CustomDialog")
-        }
 
         return view
     }

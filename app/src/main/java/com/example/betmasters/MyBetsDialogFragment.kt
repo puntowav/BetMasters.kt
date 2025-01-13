@@ -8,7 +8,7 @@ import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-class MyBetsDialogFragment (activity: MainActivity): DialogFragment() {
+class MyBetsDialogFragment(private val callBack: DialogCallBack): DialogFragment() {
 
     private lateinit var rvBets: RecyclerView
     private lateinit var betAdapter: BetAdapter
@@ -29,7 +29,7 @@ class MyBetsDialogFragment (activity: MainActivity): DialogFragment() {
 
 
         rvBets = view.findViewById(R.id.rvBets)
-        betAdapter = BetAdapter(bets, fragment = HomeFragment())
+        betAdapter = BetAdapter(bets, callBack)
         rvBets.layoutManager = LinearLayoutManager(requireContext())
         rvBets.adapter = betAdapter
     }

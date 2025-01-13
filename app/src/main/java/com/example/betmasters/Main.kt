@@ -3,17 +3,32 @@ package com.example.betmasters
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageButton
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.example.betmasters.HomeFragment.Companion.coins
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.button.MaterialButton
 
-class Main : AppCompatActivity() {
+class Main : AppCompatActivity(), DialogCallBack {
+    private lateinit var txtCoins : TextView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main)
 
         val profileButton: ImageButton = findViewById(R.id.btnPerfil)
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        txtCoins = findViewById(R.id.txtCoins)
+
+        updateCoins()
+
+        val buttonShowDialog = findViewById<MaterialButton>(R.id.fabMisApuestas)
+        buttonShowDialog.setOnClickListener {
+            // Instancia y muestra el DialogFragment
+            val dialogFragment = MyBetsDialogFragment(this)
+            dialogFragment.show(supportFragmentManager, "CustomDialog")
+        }
 
         profileButton.setOnClickListener {
             val intent = Intent(this, SettingsActivity::class.java)
@@ -43,5 +58,15 @@ class Main : AppCompatActivity() {
         if (savedInstanceState == null) {
             bottomNavigationView.selectedItemId = R.id.home
         }
+    }
+
+    fun updateCoins() {
+        val formattedCoins = String.format("%.0f", coins)
+        txtCoins.text = "$formattedCoins"
+        //saveCoinsToPreferences()
+    }
+
+    override fun onCoinsUpdated() {
+        updateCoins()
     }
 }
