@@ -28,7 +28,17 @@ class HomeFragment : Fragment() {
         Match("G2Giants", GameCategory.Lol),
         Match("MadLionsG2", GameCategory.Lol),
         Match("T1HLE", GameCategory.Lol),
-        Match("HereticsMKoi", GameCategory.Lol),
+        Match("HereticsMKoi", GameCategory.Valorant),
+        Match("KCorpFUTEsports", GameCategory.Valorant),
+        Match("100TTeamLiquid", GameCategory.Valorant),
+        Match("TeamLiquidMKoi", GameCategory.Valorant),
+        Match("HereticsKCorp", GameCategory.Valorant),
+        Match("NAVIMouz", GameCategory.Csgo),
+        Match("NAVIHeroic", GameCategory.Csgo),
+        Match("FazeClanAstralis", GameCategory.Csgo),
+        Match("FazeClanNAVI", GameCategory.Csgo),
+        Match("NAVIVitality", GameCategory.Csgo),
+        Match("VitalityFazeClan", GameCategory.Csgo),
         Match("FearXGenG", GameCategory.Lol)
     )
 

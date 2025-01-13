@@ -27,6 +27,8 @@ class ExpandableCardActivity : BottomSheetDialogFragment() {
 
     private var isExpandedLEC = false
     private var isExpandedLCK = false
+    private var isExpandedEMEA = false
+    private var isExpandedESL = false
     private lateinit var sharedPreferences: SharedPreferences
     private val items = arrayOf(
         "League of Legends",
@@ -49,6 +51,20 @@ class ExpandableCardActivity : BottomSheetDialogFragment() {
     private val icon4KeyLCK = "Icon4Visible"
     private val icon5KeyLCK = "Icon5Visible"
     private val icon6KeyLCK = "Icon6Visible"
+
+    private val icon1KeyEMEA = "Icon1Visible"
+    private val icon2KeyEMEA = "Icon2Visible"
+    private val icon3KeyEMEA = "Icon3Visible"
+    private val icon4KeyEMEA = "Icon4Visible"
+    private val icon5KeyEMEA = "Icon5Visible"
+    private val icon6KeyEMEA = "Icon6Visible"
+
+    private val icon1KeyESL = "Icon1Visible"
+    private val icon2KeyESL = "Icon2Visible"
+    private val icon3KeyESL = "Icon3Visible"
+    private val icon4KeyESL = "Icon4Visible"
+    private val icon5KeyESL = "Icon5Visible"
+    private val icon6KeyESL = "Icon6Visible"
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -78,15 +94,16 @@ class ExpandableCardActivity : BottomSheetDialogFragment() {
 
         val lecLayout: LinearLayout = view.findViewById(R.id.lecLayout)
         val lckLayout: LinearLayout = view.findViewById(R.id.lckLayout)
-        val lcsLayout: LinearLayout = view.findViewById(R.id.lcsLayout)
-        val lplLayout: LinearLayout = view.findViewById(R.id.lplLayout)
-        val americasLayout: LinearLayout = view.findViewById(R.id.americasLayout)
         val emeaLayout: LinearLayout = view.findViewById(R.id.emeaLayout)
-        val pacificLayout: LinearLayout = view.findViewById(R.id.pacificLayout)
         val eslLayout: LinearLayout = view.findViewById(R.id.eslLayout)
-        val expandableCard: CardView = view.findViewById(R.id.expandableCard)
+        val expandableCardLEC: CardView = view.findViewById(R.id.expandableCardLEC)
         val expandableCardLCK: CardView = view.findViewById(R.id.expandableCardLCK)
+        val expandableCardEMEA: CardView = view.findViewById(R.id.expandableCardEMEA)
+        val expandableCardESL: CardView = view.findViewById(R.id.expandableCardESL)
         val arrowIcon: ImageView = view.findViewById(R.id.arrowIcon)
+        val arrowIcon3: ImageView = view.findViewById(R.id.arrowIcon3)
+        val arrowIcon7: ImageView = view.findViewById(R.id.arrowIcon7)
+        val arrowIcon9: ImageView = view.findViewById(R.id.arrowIcon9)
         val autoCompleteTextEsport: AutoCompleteTextView = view.findViewById(R.id.auto_complete_txt)
         val btnApply: Button = view.findViewById(R.id.btnApply)
 
@@ -109,6 +126,63 @@ class ExpandableCardActivity : BottomSheetDialogFragment() {
         val txtTeam5: TextView = view.findViewById(R.id.txtTeam5)
         val txtTeam6: TextView = view.findViewById(R.id.txtTeam6)
 
+        val imgTeam1LCK: ImageView = view.findViewById(R.id.imgLCKTeam1)
+        val ovTeam1LCK: ImageView = view.findViewById(R.id.overlayLCKTeam1)
+        val imgTeam2LCK: ImageView = view.findViewById(R.id.imageLCKTeam2)
+        val ovTeam2LCK: ImageView = view.findViewById(R.id.overlayLCKTeam2)
+        val imgTeam3LCK: ImageView = view.findViewById(R.id.imageLCKTeam3)
+        val ovTeam3LCK: ImageView = view.findViewById(R.id.overlayLCKTeam3)
+        val imgTeam4LCK: ImageView = view.findViewById(R.id.imageLCKTeam4)
+        val ovTeam4LCK: ImageView = view.findViewById(R.id.overlayLCKTeam4)
+        val imgTeam5LCK: ImageView = view.findViewById(R.id.imageLCKTeam5)
+        val ovTeam5LCK: ImageView = view.findViewById(R.id.overlayLCKTeam5)
+        val imgTeam6LCK: ImageView = view.findViewById(R.id.imageLCKTeam6)
+        val ovTeam6LCK: ImageView = view.findViewById(R.id.overlayLCKTeam6)
+        val txtTeam1LCK: TextView = view.findViewById(R.id.txtLCKTeam1)
+        val txtTeam2LCK: TextView = view.findViewById(R.id.txtLCKTeam2)
+        val txtTeam3LCK: TextView = view.findViewById(R.id.txtLCKTeam3)
+        val txtTeam4LCK: TextView = view.findViewById(R.id.txtLCKTeam4)
+        val txtTeam5LCK: TextView = view.findViewById(R.id.txtLCKTeam5)
+        val txtTeam6LCK: TextView = view.findViewById(R.id.txtLCKTeam6)
+
+        val imgTeam1EMEA: ImageView = view.findViewById(R.id.imgEMEATeam1)
+        val ovTeam1EMEA: ImageView = view.findViewById(R.id.overlayEMEATeam1)
+        val imgTeam2EMEA: ImageView = view.findViewById(R.id.imageEMEATeam2)
+        val ovTeam2EMEA: ImageView = view.findViewById(R.id.overlayEMEATeam2)
+        val imgTeam3EMEA: ImageView = view.findViewById(R.id.imageEMEATeam3)
+        val ovTeam3EMEA: ImageView = view.findViewById(R.id.overlayEMEATeam3)
+        val imgTeam4EMEA: ImageView = view.findViewById(R.id.imageEMEATeam4)
+        val ovTeam4EMEA: ImageView = view.findViewById(R.id.overlayEMEATeam4)
+        val imgTeam5EMEA: ImageView = view.findViewById(R.id.imageEMEATeam5)
+        val ovTeam5EMEA: ImageView = view.findViewById(R.id.overlayEMEATeam5)
+        val imgTeam6EMEA: ImageView = view.findViewById(R.id.imageEMEATeam6)
+        val ovTeam6EMEA: ImageView = view.findViewById(R.id.overlayEMEATeam6)
+        val txtTeam1EMEA: TextView = view.findViewById(R.id.txtEMEATeam1)
+        val txtTeam2EMEA: TextView = view.findViewById(R.id.txtEMEATeam2)
+        val txtTeam3EMEA: TextView = view.findViewById(R.id.txtEMEATeam3)
+        val txtTeam4EMEA: TextView = view.findViewById(R.id.txtEMEATeam4)
+        val txtTeam5EMEA: TextView = view.findViewById(R.id.txtEMEATeam5)
+        val txtTeam6EMEA: TextView = view.findViewById(R.id.txtEMEATeam6)
+
+        val imgTeam1ESL: ImageView = view.findViewById(R.id.imgESLTeam1)
+        val ovTeam1ESL: ImageView = view.findViewById(R.id.overlayESLTeam1)
+        val imgTeam2ESL: ImageView = view.findViewById(R.id.imageESLTeam2)
+        val ovTeam2ESL: ImageView = view.findViewById(R.id.overlayESLTeam2)
+        val imgTeam3ESL: ImageView = view.findViewById(R.id.imageESLTeam3)
+        val ovTeam3ESL: ImageView = view.findViewById(R.id.overlayESLTeam3)
+        val imgTeam4ESL: ImageView = view.findViewById(R.id.imageESLTeam4)
+        val ovTeam4ESL: ImageView = view.findViewById(R.id.overlayESLTeam4)
+        val imgTeam5ESL: ImageView = view.findViewById(R.id.imageESLTeam5)
+        val ovTeam5ESL: ImageView = view.findViewById(R.id.overlayESLTeam5)
+        val imgTeam6ESL: ImageView = view.findViewById(R.id.imageESLTeam6)
+        val ovTeam6ESL: ImageView = view.findViewById(R.id.overlayESLTeam6)
+        val txtTeam1ESL: TextView = view.findViewById(R.id.txtESLTeam1)
+        val txtTeam2ESL: TextView = view.findViewById(R.id.txtESLTeam2)
+        val txtTeam3ESL: TextView = view.findViewById(R.id.txtESLTeam3)
+        val txtTeam4ESL: TextView = view.findViewById(R.id.txtESLTeam4)
+        val txtTeam5ESL: TextView = view.findViewById(R.id.txtESLTeam5)
+        val txtTeam6ESL: TextView = view.findViewById(R.id.txtESLTeam6)
+
         // Recuperar el estado de los iconos desde SharedPreferences
         restoreIconVisibility(imgTeam1, ovTeam1, icon1KeyLEC, txtTeam1.text.toString())
         restoreIconVisibility(imgTeam2, ovTeam2, icon2KeyLEC, txtTeam2.text.toString())
@@ -116,6 +190,27 @@ class ExpandableCardActivity : BottomSheetDialogFragment() {
         restoreIconVisibility(imgTeam4, ovTeam4, icon4KeyLEC, txtTeam4.text.toString())
         restoreIconVisibility(imgTeam5, ovTeam5, icon5KeyLEC, txtTeam5.text.toString())
         restoreIconVisibility(imgTeam6, ovTeam6, icon6KeyLEC, txtTeam6.text.toString())
+
+        restoreIconVisibility(imgTeam1LCK, ovTeam1LCK, icon1KeyLCK, txtTeam1LCK.text.toString())
+        restoreIconVisibility(imgTeam2LCK, ovTeam2LCK, icon2KeyLCK, txtTeam2LCK.text.toString())
+        restoreIconVisibility(imgTeam3LCK, ovTeam3LCK, icon3KeyLCK, txtTeam3LCK.text.toString())
+        restoreIconVisibility(imgTeam4LCK, ovTeam4LCK, icon4KeyLCK, txtTeam4LCK.text.toString())
+        restoreIconVisibility(imgTeam5LCK, ovTeam5LCK, icon5KeyLCK, txtTeam5LCK.text.toString())
+        restoreIconVisibility(imgTeam6LCK, ovTeam6LCK, icon6KeyLCK, txtTeam6LCK.text.toString())
+
+        restoreIconVisibility(imgTeam1EMEA, ovTeam1EMEA, icon1KeyEMEA, txtTeam1EMEA.text.toString())
+        restoreIconVisibility(imgTeam2EMEA, ovTeam2EMEA, icon2KeyEMEA, txtTeam2EMEA.text.toString())
+        restoreIconVisibility(imgTeam3EMEA, ovTeam3EMEA, icon3KeyEMEA, txtTeam3EMEA.text.toString())
+        restoreIconVisibility(imgTeam4EMEA, ovTeam4EMEA, icon4KeyEMEA, txtTeam4EMEA.text.toString())
+        restoreIconVisibility(imgTeam5EMEA, ovTeam5EMEA, icon5KeyEMEA, txtTeam5EMEA.text.toString())
+        restoreIconVisibility(imgTeam6EMEA, ovTeam6EMEA, icon6KeyEMEA, txtTeam6EMEA.text.toString())
+
+        restoreIconVisibility(imgTeam1ESL, ovTeam1ESL, icon1KeyESL, txtTeam1ESL.text.toString())
+        restoreIconVisibility(imgTeam2ESL, ovTeam2ESL, icon2KeyESL, txtTeam2ESL.text.toString())
+        restoreIconVisibility(imgTeam3ESL, ovTeam3ESL, icon3KeyESL, txtTeam3ESL.text.toString())
+        restoreIconVisibility(imgTeam4ESL, ovTeam4ESL, icon4KeyESL, txtTeam4ESL.text.toString())
+        restoreIconVisibility(imgTeam5ESL, ovTeam5ESL, icon5KeyESL, txtTeam5ESL.text.toString())
+        restoreIconVisibility(imgTeam6ESL, ovTeam6ESL, icon6KeyESL, txtTeam6ESL.text.toString())
 
         adapterItems = ArrayAdapter<String>(requireContext(), R.layout.lista_desplegable, items)
 
@@ -129,35 +224,31 @@ class ExpandableCardActivity : BottomSheetDialogFragment() {
                 "League of Legends" -> {
                     lecLayout.visibility = View.VISIBLE
                     lckLayout.visibility = View.VISIBLE
-                    lcsLayout.visibility = View.VISIBLE
-                    lplLayout.visibility = View.VISIBLE
 
-                    americasLayout.visibility = View.GONE
+                    expandableCardESL.visibility = View.GONE
+                    expandableCardEMEA.visibility = View.GONE
                     emeaLayout.visibility = View.GONE
-                    pacificLayout.visibility = View.GONE
                     eslLayout.visibility = View.GONE
                 }
                 "Valorant" -> {
-                    americasLayout.visibility = View.VISIBLE
                     emeaLayout.visibility = View.VISIBLE
-                    pacificLayout.visibility = View.VISIBLE
 
+                    expandableCardLEC.visibility = View.GONE
+                    expandableCardLCK.visibility = View.GONE
+                    expandableCardESL.visibility = View.GONE
                     lecLayout.visibility = View.GONE
                     lckLayout.visibility = View.GONE
-                    lcsLayout.visibility = View.GONE
-                    lplLayout.visibility = View.GONE
                     eslLayout.visibility = View.GONE
                 }
                 "Counter Strike" -> {
                     eslLayout.visibility = View.VISIBLE
 
+                    expandableCardEMEA.visibility = View.GONE
+                    expandableCardLEC.visibility = View.GONE
+                    expandableCardLCK.visibility = View.GONE
                     lecLayout.visibility = View.GONE
                     lckLayout.visibility = View.GONE
-                    lcsLayout.visibility = View.GONE
-                    lplLayout.visibility = View.GONE
-                    americasLayout.visibility = View.GONE
                     emeaLayout.visibility = View.GONE
-                    pacificLayout.visibility = View.GONE
                 }
 
             }
@@ -169,11 +260,11 @@ class ExpandableCardActivity : BottomSheetDialogFragment() {
 
         lecLayout.setOnClickListener {
             if (isExpandedLEC) {
-                collapse(expandableCard)
-                arrowIcon.setImageResource(R.drawable.arrow_contraer) // Cambia el ícono
+                collapse(expandableCardLEC)
+                arrowIcon.setImageResource(R.drawable.arrow_expandir)
             } else {
-                expand(expandableCard)
-                arrowIcon.setImageResource(R.drawable.arrow_expandir) // Cambia el ícono
+                expand(expandableCardLEC)
+                arrowIcon.setImageResource(R.drawable.arrow_contraer)
             }
             isExpandedLEC = !isExpandedLEC
         }
@@ -181,12 +272,34 @@ class ExpandableCardActivity : BottomSheetDialogFragment() {
         lckLayout.setOnClickListener {
             if (isExpandedLCK) {
                 collapse(expandableCardLCK)
-                arrowIcon.setImageResource(R.drawable.arrow_contraer) // Cambia el ícono
+                arrowIcon3.setImageResource(R.drawable.arrow_expandir)
             } else {
                 expand(expandableCardLCK)
-                arrowIcon.setImageResource(R.drawable.arrow_expandir) // Cambia el ícono
+                arrowIcon3.setImageResource(R.drawable.arrow_contraer)
             }
             isExpandedLCK = !isExpandedLCK
+        }
+
+        emeaLayout.setOnClickListener {
+            if (isExpandedEMEA) {
+                collapse(expandableCardEMEA)
+                arrowIcon7.setImageResource(R.drawable.arrow_expandir)
+            } else {
+                expand(expandableCardEMEA)
+                arrowIcon7.setImageResource(R.drawable.arrow_contraer)
+            }
+            isExpandedEMEA = !isExpandedEMEA
+        }
+
+        eslLayout.setOnClickListener {
+            if (isExpandedESL) {
+                collapse(expandableCardESL)
+                arrowIcon9.setImageResource(R.drawable.arrow_expandir)
+            } else {
+                expand(expandableCardESL)
+                arrowIcon9.setImageResource(R.drawable.arrow_contraer)
+            }
+            isExpandedESL = !isExpandedESL
         }
 
         // Configurar los listeners para los iconos
@@ -196,6 +309,27 @@ class ExpandableCardActivity : BottomSheetDialogFragment() {
         setupIconClickListener(imgTeam4, ovTeam4, txtTeam4, icon4KeyLEC)
         setupIconClickListener(imgTeam5, ovTeam5, txtTeam5, icon5KeyLEC)
         setupIconClickListener(imgTeam6, ovTeam6, txtTeam6, icon6KeyLEC)
+
+        setupIconClickListener(imgTeam1LCK, ovTeam1LCK, txtTeam1LCK, icon1KeyLCK)
+        setupIconClickListener(imgTeam2LCK, ovTeam2LCK, txtTeam2LCK, icon2KeyLCK)
+        setupIconClickListener(imgTeam3LCK, ovTeam3LCK, txtTeam3LCK, icon3KeyLCK)
+        setupIconClickListener(imgTeam4LCK, ovTeam4LCK, txtTeam4LCK, icon4KeyLCK)
+        setupIconClickListener(imgTeam5LCK, ovTeam5LCK, txtTeam5LCK, icon5KeyLCK)
+        setupIconClickListener(imgTeam6LCK, ovTeam6LCK, txtTeam6LCK, icon6KeyLCK)
+
+        setupIconClickListener(imgTeam1EMEA, ovTeam1EMEA, txtTeam1EMEA, icon1KeyEMEA)
+        setupIconClickListener(imgTeam2EMEA, ovTeam2EMEA, txtTeam2EMEA, icon2KeyEMEA)
+        setupIconClickListener(imgTeam3EMEA, ovTeam3EMEA, txtTeam3EMEA, icon3KeyEMEA)
+        setupIconClickListener(imgTeam4EMEA, ovTeam4EMEA, txtTeam4EMEA, icon4KeyEMEA)
+        setupIconClickListener(imgTeam5EMEA, ovTeam5EMEA, txtTeam5EMEA, icon5KeyEMEA)
+        setupIconClickListener(imgTeam6EMEA, ovTeam6EMEA, txtTeam6EMEA, icon6KeyEMEA)
+
+        setupIconClickListener(imgTeam1ESL, ovTeam1ESL, txtTeam1ESL, icon1KeyESL)
+        setupIconClickListener(imgTeam2ESL, ovTeam2ESL, txtTeam2ESL, icon2KeyESL)
+        setupIconClickListener(imgTeam3ESL, ovTeam3ESL, txtTeam3ESL, icon3KeyESL)
+        setupIconClickListener(imgTeam4ESL, ovTeam4ESL, txtTeam4ESL, icon4KeyESL)
+        setupIconClickListener(imgTeam5ESL, ovTeam5ESL, txtTeam5ESL, icon5KeyESL)
+        setupIconClickListener(imgTeam6ESL, ovTeam6ESL, txtTeam6ESL, icon6KeyESL)
     }
 
     private fun restoreIconVisibility(imgTeam: ImageView, ovTeam: ImageView, iconKey: String, teamName: String) {

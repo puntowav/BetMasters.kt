@@ -30,64 +30,472 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="Favoritos"/>
+    </LinearLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Select Esport"
+        android:textColorHint="@color/black"
+        android:background="#D6E3F6"
+        android:padding="8dp"
+        android:layout_margin="8dp"
+        app:hintTextColor="@color/black"
+        app:boxStrokeColor="#0C5D7D"
+        app:endIconTint="#0C5D7D"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        <AutoCompleteTextView
+            android:id="@+id/auto_complete_txt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="none"
+            android:textColor="@color/black"
+            android:popupBackground="#D6E3F6" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:id="@+id/lecLayout"
+        style="@style/leagueHeader">
+
+        <TextView
+            android:id="@+id/headerText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="LEC"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/arrowIcon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/arrow_expandir" />
+    </LinearLayout>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/expandableCardLEC"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#D6E3F6"
+        android:visibility="gone"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:cardCornerRadius="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <!-- Columna 1 -->
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="8dp">
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <!-- Equipo 1 -->
+                <FrameLayout
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="8dp">
+
+                    <ImageView
+                        android:id="@+id/imageTeam1"
+                        style="@style/imgTeamFav"
+                        android:src="@drawable/mad" />
+
+                    <ImageView
+                        android:id="@+id/overlayTeam1"
+                        android:visibility="gone"
+                        style="@style/overlayCorazon"/>
+                </FrameLayout>
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:text="Favoritos"/>
+                    android:id="@+id/txtTeam1"
+                    android:text="MadLions"
+                    style="@style/txtTeamFav"/>
+
+                <!-- Equipo 2 -->
+                <FrameLayout
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="8dp">
+
+                    <ImageView
+                        android:id="@+id/imageTeam4"
+                        style="@style/imgTeamFav"
+                        android:src="@drawable/fnatic" />
+
+                    <ImageView
+                        android:id="@+id/overlayTeam4"
+                        android:visibility="gone"
+                        style="@style/overlayCorazon"/>
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/txtTeam4"
+                    android:text="Fnatic"
+                    style="@style/txtTeamFav"/>
+            </LinearLayout>
+
+            <!-- Columna 1 -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <!-- Equipo 1 -->
+                <FrameLayout
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="8dp">
+
+                    <ImageView
+                        android:id="@+id/imageTeam2"
+                        style="@style/imgTeamFav"
+                        android:src="@drawable/g2" />
+
+                    <ImageView
+                        android:id="@+id/overlayTeam2"
+                        android:visibility="gone"
+                        style="@style/overlayCorazon"/>
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/txtTeam2"
+                    android:text="G2"
+                    style="@style/txtTeamFav"/>
+
+                <!-- Equipo 2 -->
+                <FrameLayout
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="8dp">
+
+                    <ImageView
+                        android:id="@+id/imageTeam5"
+                        style="@style/imgTeamFav"
+                        android:src="@drawable/giants" />
+
+                    <ImageView
+                        android:id="@+id/overlayTeam5"
+                        android:visibility="gone"
+                        style="@style/overlayCorazon"/>
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/txtTeam5"
+                    android:text="Giants"
+                    style="@style/txtTeamFav"/>
+            </LinearLayout>
+
+            <!-- Columna 1 -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <!-- Equipo 1 -->
+                <FrameLayout
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="8dp">
+
+                    <ImageView
+                        android:id="@+id/imageTeam3"
+                        style="@style/imgTeamFav"
+                        android:src="@drawable/skgaming" />
+
+                    <ImageView
+                        android:id="@+id/overlayTeam3"
+                        android:visibility="gone"
+                        style="@style/overlayCorazon"/>
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/txtTeam3"
+                    android:text="SKGaming"
+                    style="@style/txtTeamFav"/>
+
+                <!-- Equipo 2 -->
+                <FrameLayout
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="8dp">
+
+                    <ImageView
+                        android:id="@+id/imageTeam6"
+                        style="@style/imgTeamFav"
+                        android:src="@drawable/heretics" />
+
+                    <ImageView
+                        android:id="@+id/overlayTeam6"
+                        android:visibility="gone"
+                        style="@style/overlayCorazon"/>
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/txtTeam6"
+                    android:text="Heretics"
+                    style="@style/txtTeamFav"/>
             </LinearLayout>
 
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Select Esport"
-                android:textColorHint="@color/black"
-                android:background="#D6E3F6"
-                android:padding="8dp"
-                android:layout_margin="8dp"
-                app:hintTextColor="@color/black"
-                app:boxStrokeColor="#0C5D7D"
-                app:endIconTint="#0C5D7D"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
-                <AutoCompleteTextView
-                    android:id="@+id/auto_complete_txt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="none"
-                    android:textColor="@color/black"
-                    android:popupBackground="#D6E3F6" />
-            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
 
+    </androidx.cardview.widget.CardView>
+
+    <LinearLayout
+        android:id="@+id/lckLayout"
+        style="@style/leagueHeader">
+
+        <TextView
+            android:id="@+id/lckText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="LCK"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/arrowIcon3"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/arrow_expandir" />
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/expandableCardLCK"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#D6E3F6"
+        android:visibility="gone"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:cardCornerRadius="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <!-- Columna 1 -->
             <LinearLayout
-                android:id="@+id/lecLayout"
-                style="@style/leagueHeader">
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <!-- Equipo 1 -->
+                <FrameLayout
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="8dp">
+
+                    <ImageView
+                        android:id="@+id/imgLCKTeam1"
+                        style="@style/imgTeamFav"
+                        android:src="@drawable/t1" />
+
+                    <ImageView
+                        android:id="@+id/overlayLCKTeam1"
+                        android:visibility="gone"
+                        style="@style/overlayCorazon"/>
+                </FrameLayout>
 
                 <TextView
-                    android:id="@+id/headerText"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="LEC"
-                    android:textColor="@android:color/black"
-                    android:textSize="16sp" />
+                    android:id="@+id/txtLCKTeam1"
+                    android:text="T1"
+                    style="@style/txtTeamFav"/>
 
-                <ImageView
-                    android:id="@+id/arrowIcon"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/arrow_expandir" />
+                <!-- Equipo 2 -->
+                <FrameLayout
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="8dp">
+
+                    <ImageView
+                        android:id="@+id/imageLCKTeam4"
+                        style="@style/imgTeamFav"
+                        android:src="@drawable/kt_rolster" />
+
+                    <ImageView
+                        android:id="@+id/overlayLCKTeam4"
+                        android:visibility="gone"
+                        style="@style/overlayCorazon"/>
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/txtLCKTeam4"
+                    android:text="KTRolster"
+                    style="@style/txtTeamFav"/>
             </LinearLayout>
 
+            <!-- Columna 1 -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <!-- Equipo 1 -->
+                <FrameLayout
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="8dp">
+
+                    <ImageView
+                        android:id="@+id/imageLCKTeam2"
+                        style="@style/imgTeamFav"
+                        android:src="@drawable/geng" />
+
+                    <ImageView
+                        android:id="@+id/overlayLCKTeam2"
+                        android:visibility="gone"
+                        style="@style/overlayCorazon"/>
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/txtLCKTeam2"
+                    android:text="GenG"
+                    style="@style/txtTeamFav"/>
+
+                <!-- Equipo 2 -->
+                <FrameLayout
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="8dp">
+
+                    <ImageView
+                        android:id="@+id/imageLCKTeam5"
+                        style="@style/imgTeamFav"
+                        android:src="@drawable/dwkia" />
+
+                    <ImageView
+                        android:id="@+id/overlayLCKTeam5"
+                        android:visibility="gone"
+                        style="@style/overlayCorazon"/>
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/txtLCKTeam5"
+                    android:text="DWKia"
+                    style="@style/txtTeamFav"/>
+            </LinearLayout>
+
+            <!-- Columna 1 -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <!-- Equipo 1 -->
+                <FrameLayout
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="8dp">
+
+                    <ImageView
+                        android:id="@+id/imageLCKTeam3"
+                        style="@style/imgTeamFav"
+                        android:src="@drawable/hle" />
+
+                    <ImageView
+                        android:id="@+id/overlayLCKTeam3"
+                        android:visibility="gone"
+                        style="@style/overlayCorazon"/>
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/txtLCKTeam3"
+                    android:text="HLE"
+                    style="@style/txtTeamFav"/>
+
+                <!-- Equipo 2 -->
+                <FrameLayout
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="8dp">
+
+                    <ImageView
+                        android:id="@+id/imageLCKTeam6"
+                        style="@style/imgTeamFav"
+                        android:src="@drawable/fearx" />
+
+                    <ImageView
+                        android:id="@+id/overlayLCKTeam6"
+                        android:visibility="gone"
+                        style="@style/overlayCorazon"/>
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/txtLCKTeam6"
+                    android:text="FearX"
+                    style="@style/txtTeamFav"/>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <LinearLayout
+        android:id="@+id/emeaLayout"
+        style="@style/leagueHeader">
+
+        <TextView
+            android:id="@+id/emeaText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="EMEA League"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/arrowIcon7"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/arrow_expandir" />
+    </LinearLayout>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/expandableCard"
+                android:id="@+id/expandableCardEMEA"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#D6E3F6"
@@ -118,19 +526,19 @@
                             android:layout_margin="8dp">
 
                             <ImageView
-                                android:id="@+id/imageTeam1"
+                                android:id="@+id/imgEMEATeam1"
                                 style="@style/imgTeamFav"
-                                android:src="@drawable/mad" />
+                                android:src="@drawable/movistarkoi" />
 
                             <ImageView
-                                android:id="@+id/overlayTeam1"
+                                android:id="@+id/overlayEMEATeam1"
                                 android:visibility="gone"
                                 style="@style/overlayCorazon"/>
                         </FrameLayout>
 
                         <TextView
-                            android:id="@+id/txtTeam1"
-                            android:text="MadLions"
+                            android:id="@+id/txtEMEATeam1"
+                            android:text="MKoi"
                             style="@style/txtTeamFav"/>
 
                         <!-- Equipo 2 -->
@@ -141,127 +549,127 @@
                             android:layout_margin="8dp">
 
                             <ImageView
-                                android:id="@+id/imageTeam4"
-                                style="@style/imgTeamFav"
-                                android:src="@drawable/fnatic" />
-
-                            <ImageView
-                                android:id="@+id/overlayTeam4"
-                                android:visibility="gone"
-                                style="@style/overlayCorazon"/>
-                        </FrameLayout>
-
-                        <TextView
-                            android:id="@+id/txtTeam4"
-                            android:text="Fnatic"
-                            style="@style/txtTeamFav"/>
-                    </LinearLayout>
-
-                    <!-- Columna 1 -->
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <!-- Equipo 1 -->
-                        <FrameLayout
-                            android:layout_width="75dp"
-                            android:layout_height="75dp"
-                            android:layout_gravity="center"
-                            android:layout_margin="8dp">
-
-                            <ImageView
-                                android:id="@+id/imageTeam2"
-                                style="@style/imgTeamFav"
-                                android:src="@drawable/g2" />
-
-                            <ImageView
-                                android:id="@+id/overlayTeam2"
-                                android:visibility="gone"
-                                style="@style/overlayCorazon"/>
-                        </FrameLayout>
-
-                        <TextView
-                            android:id="@+id/txtTeam2"
-                            android:text="G2"
-                            style="@style/txtTeamFav"/>
-
-                        <!-- Equipo 2 -->
-                        <FrameLayout
-                            android:layout_width="75dp"
-                            android:layout_height="75dp"
-                            android:layout_gravity="center"
-                            android:layout_margin="8dp">
-
-                            <ImageView
-                                android:id="@+id/imageTeam5"
-                                style="@style/imgTeamFav"
-                                android:src="@drawable/giants" />
-
-                            <ImageView
-                                android:id="@+id/overlayTeam5"
-                                android:visibility="gone"
-                                style="@style/overlayCorazon"/>
-                        </FrameLayout>
-
-                        <TextView
-                            android:id="@+id/txtTeam5"
-                            android:text="Giants"
-                            style="@style/txtTeamFav"/>
-                    </LinearLayout>
-
-                    <!-- Columna 1 -->
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <!-- Equipo 1 -->
-                        <FrameLayout
-                            android:layout_width="75dp"
-                            android:layout_height="75dp"
-                            android:layout_gravity="center"
-                            android:layout_margin="8dp">
-
-                            <ImageView
-                                android:id="@+id/imageTeam3"
-                                style="@style/imgTeamFav"
-                                android:src="@drawable/skgaming" />
-
-                            <ImageView
-                                android:id="@+id/overlayTeam3"
-                                android:visibility="gone"
-                                style="@style/overlayCorazon"/>
-                        </FrameLayout>
-
-                        <TextView
-                            android:id="@+id/txtTeam3"
-                            android:text="SKGaming"
-                            style="@style/txtTeamFav"/>
-
-                        <!-- Equipo 2 -->
-                        <FrameLayout
-                            android:layout_width="75dp"
-                            android:layout_height="75dp"
-                            android:layout_gravity="center"
-                            android:layout_margin="8dp">
-
-                            <ImageView
-                                android:id="@+id/imageTeam6"
+                                android:id="@+id/imageEMEATeam4"
                                 style="@style/imgTeamFav"
                                 android:src="@drawable/heretics" />
 
                             <ImageView
-                                android:id="@+id/overlayTeam6"
+                                android:id="@+id/overlayEMEATeam4"
                                 android:visibility="gone"
                                 style="@style/overlayCorazon"/>
                         </FrameLayout>
 
                         <TextView
-                            android:id="@+id/txtTeam6"
+                            android:id="@+id/txtEMEATeam4"
                             android:text="Heretics"
+                            style="@style/txtTeamFav"/>
+                    </LinearLayout>
+
+                    <!-- Columna 1 -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <!-- Equipo 1 -->
+                        <FrameLayout
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            android:layout_gravity="center"
+                            android:layout_margin="8dp">
+
+                            <ImageView
+                                android:id="@+id/imageEMEATeam2"
+                                style="@style/imgTeamFav"
+                                android:src="@drawable/thieves" />
+
+                            <ImageView
+                                android:id="@+id/overlayEMEATeam2"
+                                android:visibility="gone"
+                                style="@style/overlayCorazon"/>
+                        </FrameLayout>
+
+                        <TextView
+                            android:id="@+id/txtEMEATeam2"
+                            android:text="100T"
+                            style="@style/txtTeamFav"/>
+
+                        <!-- Equipo 2 -->
+                        <FrameLayout
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            android:layout_gravity="center"
+                            android:layout_margin="8dp">
+
+                            <ImageView
+                                android:id="@+id/imageEMEATeam5"
+                                style="@style/imgTeamFav"
+                                android:src="@drawable/karminecorp" />
+
+                            <ImageView
+                                android:id="@+id/overlayEMEATeam5"
+                                android:visibility="gone"
+                                style="@style/overlayCorazon"/>
+                        </FrameLayout>
+
+                        <TextView
+                            android:id="@+id/txtEMEATeam5"
+                            android:text="KCorp"
+                            style="@style/txtTeamFav"/>
+                    </LinearLayout>
+
+                    <!-- Columna 1 -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <!-- Equipo 1 -->
+                        <FrameLayout
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            android:layout_gravity="center"
+                            android:layout_margin="8dp">
+
+                            <ImageView
+                                android:id="@+id/imageEMEATeam3"
+                                style="@style/imgTeamFav"
+                                android:src="@drawable/fut_esports" />
+
+                            <ImageView
+                                android:id="@+id/overlayEMEATeam3"
+                                android:visibility="gone"
+                                style="@style/overlayCorazon"/>
+                        </FrameLayout>
+
+                        <TextView
+                            android:id="@+id/txtEMEATeam3"
+                            android:text="FUTEsports"
+                            style="@style/txtTeamFav"/>
+
+                        <!-- Equipo 2 -->
+                        <FrameLayout
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            android:layout_gravity="center"
+                            android:layout_margin="8dp">
+
+                            <ImageView
+                                android:id="@+id/imageEMEATeam6"
+                                style="@style/imgTeamFav"
+                                android:src="@drawable/team_liquid" />
+
+                            <ImageView
+                                android:id="@+id/overlayEMEATeam6"
+                                android:visibility="gone"
+                                style="@style/overlayCorazon"/>
+                        </FrameLayout>
+
+                        <TextView
+                            android:id="@+id/txtEMEATeam6"
+                            android:text="TeamLiquid"
                             style="@style/txtTeamFav"/>
                     </LinearLayout>
 
@@ -270,28 +678,28 @@
 
             </androidx.cardview.widget.CardView>
 
-            <LinearLayout
-                android:id="@+id/lckLayout"
-                style="@style/leagueHeader">
+    <LinearLayout
+        android:id="@+id/eslLayout"
+        style="@style/leagueHeader">
 
-                <TextView
-                    android:id="@+id/lckText"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="LCK"
-                    android:textColor="@android:color/black"
-                    android:textSize="16sp" />
+        <TextView
+            android:id="@+id/eslText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="ESL Pro League"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
 
-                <ImageView
-                    android:id="@+id/arrowIcon3"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/arrow_expandir" />
-            </LinearLayout>
+        <ImageView
+            android:id="@+id/arrowIcon9"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/arrow_expandir" />
+    </LinearLayout>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/expandableCardLCK"
+                android:id="@+id/expandableCardESL"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#D6E3F6"
@@ -322,19 +730,19 @@
                             android:layout_margin="8dp">
 
                             <ImageView
-                                android:id="@+id/imgLCKTeam1"
+                                android:id="@+id/imgESLTeam1"
                                 style="@style/imgTeamFav"
-                                android:src="@drawable/t1" />
+                                android:src="@drawable/navi" />
 
                             <ImageView
-                                android:id="@+id/overlayLCKTeam1"
+                                android:id="@+id/overlayESLTeam1"
                                 android:visibility="gone"
                                 style="@style/overlayCorazon"/>
                         </FrameLayout>
 
                         <TextView
-                            android:id="@+id/txtLCKTeam1"
-                            android:text="T1"
+                            android:id="@+id/txtESLTeam1"
+                            android:text="NAVI"
                             style="@style/txtTeamFav"/>
 
                         <!-- Equipo 2 -->
@@ -345,19 +753,19 @@
                             android:layout_margin="8dp">
 
                             <ImageView
-                                android:id="@+id/imageLCKTeam4"
+                                android:id="@+id/imageESLTeam4"
                                 style="@style/imgTeamFav"
-                                android:src="@drawable/kt_rolster" />
+                                android:src="@drawable/mouz" />
 
                             <ImageView
-                                android:id="@+id/overlayLCKTeam4"
+                                android:id="@+id/overlayESLTeam4"
                                 android:visibility="gone"
                                 style="@style/overlayCorazon"/>
                         </FrameLayout>
 
                         <TextView
-                            android:id="@+id/txtLCKTeam4"
-                            android:text="KTRolster"
+                            android:id="@+id/txtESLTeam4"
+                            android:text="Mouz"
                             style="@style/txtTeamFav"/>
                     </LinearLayout>
 
@@ -376,19 +784,19 @@
                             android:layout_margin="8dp">
 
                             <ImageView
-                                android:id="@+id/imageLCKTeam2"
+                                android:id="@+id/imageESLTeam2"
                                 style="@style/imgTeamFav"
-                                android:src="@drawable/geng" />
+                                android:src="@drawable/heroic" />
 
                             <ImageView
-                                android:id="@+id/overlayLCKTeam2"
+                                android:id="@+id/overlayESLTeam2"
                                 android:visibility="gone"
                                 style="@style/overlayCorazon"/>
                         </FrameLayout>
 
                         <TextView
-                            android:id="@+id/txtLCKTeam2"
-                            android:text="GenG"
+                            android:id="@+id/txtESLTeam2"
+                            android:text="Heroic"
                             style="@style/txtTeamFav"/>
 
                         <!-- Equipo 2 -->
@@ -399,19 +807,19 @@
                             android:layout_margin="8dp">
 
                             <ImageView
-                                android:id="@+id/imageLCKTeam5"
+                                android:id="@+id/imageESLTeam5"
                                 style="@style/imgTeamFav"
-                                android:src="@drawable/dwkia" />
+                                android:src="@drawable/fazeclan" />
 
                             <ImageView
-                                android:id="@+id/overlayLCKTeam5"
+                                android:id="@+id/overlayESLTeam5"
                                 android:visibility="gone"
                                 style="@style/overlayCorazon"/>
                         </FrameLayout>
 
                         <TextView
-                            android:id="@+id/txtLCKTeam5"
-                            android:text="DWKia"
+                            android:id="@+id/txtESLTeam5"
+                            android:text="FazeClan"
                             style="@style/txtTeamFav"/>
                     </LinearLayout>
 
@@ -430,19 +838,19 @@
                             android:layout_margin="8dp">
 
                             <ImageView
-                                android:id="@+id/imageLCKTeam3"
+                                android:id="@+id/imageESLTeam3"
                                 style="@style/imgTeamFav"
-                                android:src="@drawable/hle" />
+                                android:src="@drawable/astralis" />
 
                             <ImageView
-                                android:id="@+id/overlayLCKTeam3"
+                                android:id="@+id/overlayESLTeam3"
                                 android:visibility="gone"
                                 style="@style/overlayCorazon"/>
                         </FrameLayout>
 
                         <TextView
-                            android:id="@+id/txtLCKTeam3"
-                            android:text="HLE"
+                            android:id="@+id/txtESLTeam3"
+                            android:text="Astralis"
                             style="@style/txtTeamFav"/>
 
                         <!-- Equipo 2 -->
@@ -453,19 +861,19 @@
                             android:layout_margin="8dp">
 
                             <ImageView
-                                android:id="@+id/imageLCKTeam6"
+                                android:id="@+id/imageESLTeam6"
                                 style="@style/imgTeamFav"
-                                android:src="@drawable/fearx" />
+                                android:src="@drawable/vitality" />
 
                             <ImageView
-                                android:id="@+id/overlayLCKTeam6"
+                                android:id="@+id/overlayESLTeam6"
                                 android:visibility="gone"
                                 style="@style/overlayCorazon"/>
                         </FrameLayout>
 
                         <TextView
-                            android:id="@+id/txtLCKTeam6"
-                            android:text="FearX"
+                            android:id="@+id/txtESLTeam6"
+                            android:text="Vitality"
                             style="@style/txtTeamFav"/>
                     </LinearLayout>
 
@@ -474,138 +882,16 @@
 
             </androidx.cardview.widget.CardView>
 
-
-
-            <LinearLayout
-                android:id="@+id/lplLayout"
-                style="@style/leagueHeader">
-
-                <TextView
-                    android:id="@+id/lplText"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="LPL"
-                    android:textColor="@android:color/black"
-                    android:textSize="16sp" />
-
-                <ImageView
-                    android:id="@+id/arrowIcon4"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/arrow_expandir" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/lcsLayout"
-                style="@style/leagueHeader">
-
-                <TextView
-                    android:id="@+id/lcsText"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="LCS"
-                    android:textColor="@android:color/black"
-                    android:textSize="16sp" />
-
-                <ImageView
-                    android:id="@+id/arrowIcon5"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/arrow_expandir" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/americasLayout"
-                style="@style/leagueHeader">
-
-                <TextView
-                    android:id="@+id/americasText"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Americas League"
-                    android:textColor="@android:color/black"
-                    android:textSize="16sp" />
-
-                <ImageView
-                    android:id="@+id/arrowIcon6"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/arrow_expandir" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/emeaLayout"
-                style="@style/leagueHeader">
-
-                <TextView
-                    android:id="@+id/emeaText"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="EMEA League"
-                    android:textColor="@android:color/black"
-                    android:textSize="16sp" />
-
-                <ImageView
-                    android:id="@+id/arrowIcon7"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/arrow_expandir" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/pacificLayout"
-                style="@style/leagueHeader">
-
-                <TextView
-                    android:id="@+id/pacificText"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Pacific League"
-                    android:textColor="@android:color/black"
-                    android:textSize="16sp" />
-
-                <ImageView
-                    android:id="@+id/arrowIcon8"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/arrow_expandir" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/eslLayout"
-                style="@style/leagueHeader">
-
-                <TextView
-                    android:id="@+id/eslText"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="ESL Pro League"
-                    android:textColor="@android:color/black"
-                    android:textSize="16sp" />
-
-                <ImageView
-                    android:id="@+id/arrowIcon9"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/arrow_expandir" />
-            </LinearLayout>
-
-            <Button
-                android:id="@+id/btnApply"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="8dp"
-                android:text="Apply"
-                android:textColor="@color/white"
-                android:backgroundTint="#0C5D7D"
-                app:cornerRadius="0dp"/>
+    <Button
+        android:id="@+id/btnApply"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="8dp"
+        android:text="Apply"
+        android:textColor="@color/white"
+        android:backgroundTint="#0C5D7D"
+        app:cornerRadius="0dp"/>
 
         </LinearLayout>
     </ScrollView>
