@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import android.widget.TextView
 import com.google.android.material.button.MaterialButton
 
-class HomeFragment : Fragment(), DialogCallBack {
+class HomeFragment : Fragment() {
 
     private val categorias = listOf(
         GameCategory.Filter,
@@ -68,7 +68,7 @@ class HomeFragment : Fragment(), DialogCallBack {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
         initComponent(view)
         initUI(view)
-        updateCoins()
+        //updateCoins()
 
         return view
     }
@@ -83,14 +83,13 @@ class HomeFragment : Fragment(), DialogCallBack {
     private fun initComponent(view: View) {
         rvGames = view.findViewById(R.id.rvGames)
         rvMatches = view.findViewById(R.id.rvMatches)
-        txtCoins = view.findViewById(R.id.txtCoins)
     }
 
-    fun updateCoins() {
+    /*fun updateCoins() {
         val formattedCoins = String.format("%.0f", coins)
         txtCoins.text = "$formattedCoins"
         //saveCoinsToPreferences()
-    }
+    }*/
 
     private fun initUI(view: View) {
         gamesAdapter = CategoriesAdapter(
@@ -143,9 +142,5 @@ class HomeFragment : Fragment(), DialogCallBack {
         }
 
         matchesAdapter.updateMatches(filteredMatches)
-    }
-
-    override fun onCoinsUpdated() {
-        updateCoins()
     }
 }

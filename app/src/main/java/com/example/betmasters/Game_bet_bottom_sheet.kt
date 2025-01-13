@@ -354,7 +354,7 @@ class ExpandableCardActivity2: BottomSheetDialogFragment() {
             btnBet.isEnabled = true
             btnBet.setOnClickListener {
                 HomeFragment.coins -= txtBet.text.toString().toFloat()
-                val mainActivity = activity as? HomeFragment
+                val mainActivity = activity as? Main
                 mainActivity?.updateCoins()
                 if(isTeam1Selected) {
                     MyBetsDialogFragment.bets.add(Bet(matchNameString, tvTeam1.text.toString(), txtBet.text.toString(), txtWin.text.toString()))
