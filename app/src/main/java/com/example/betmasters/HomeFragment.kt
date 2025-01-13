@@ -14,7 +14,7 @@ import android.widget.Button
 import android.widget.TextView
 import com.google.android.material.button.MaterialButton
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(), DialogCallBack {
 
     private val categorias = listOf(
         GameCategory.Filter,
@@ -152,5 +152,9 @@ class HomeFragment : Fragment() {
         }
 
         matchesAdapter.updateMatches(filteredMatches)
+    }
+
+    override fun onCoinsUpdated() {
+        updateCoins()
     }
 }
