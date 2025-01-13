@@ -29,7 +29,7 @@ class MyBetsDialogFragment (activity: MainActivity): DialogFragment() {
 
 
         rvBets = view.findViewById(R.id.rvBets)
-        betAdapter = BetAdapter(bets, activity = MainActivity())
+        betAdapter = BetAdapter(bets, fragment = HomeFragment())
         rvBets.layoutManager = LinearLayoutManager(requireContext())
         rvBets.adapter = betAdapter
     }
