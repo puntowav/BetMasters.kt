@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.button.MaterialButton
 
 
-class BetsViewHolder(view: View) : RecyclerView.ViewHolder(view){
+class BetsViewHolder(view: View, fragment: HomeFragment) : RecyclerView.ViewHolder(view){
 
     private val txtMatch: TextView = view.findViewById(R.id.txtMatch)
     private val txtBet: TextView = view.findViewById(R.id.txtBet)

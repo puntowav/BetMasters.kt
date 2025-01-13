@@ -1,6 +1,7 @@
 package com.example.betmasters
 
 import CategoriesAdapter
+import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import android.widget.Button
 import android.widget.TextView
+import com.google.android.material.button.MaterialButton
 
 class HomeFragment : Fragment() {
 
@@ -60,6 +62,7 @@ class HomeFragment : Fragment() {
     private lateinit var matchesAdapter: MatchesAdapter
     private lateinit var txtCoins: TextView
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -69,7 +72,7 @@ class HomeFragment : Fragment() {
         initUI(view)
         updateCoins()
 
-        val buttonShowDialog = view.findViewById<Button>(R.id.fabMisApuestas)
+        val buttonShowDialog = view.findViewById<MaterialButton>(R.id.fabMisApuestas)
         buttonShowDialog.setOnClickListener {
             // Instancia y muestra el DialogFragment
             val dialogFragment = MyBetsDialogFragment(MainActivity())
