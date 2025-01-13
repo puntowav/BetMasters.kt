@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Fondo de la CardView -->
+    <item android:top="4dp" android:left="4dp" android:right="4dp" android:bottom="0dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#F0F0F0" /> <!-- Color de fondo al presionar -->
+            <corners android:radius="12dp" />
+        </shape>
+    </item>
+
+    <!-- Sombra para el efecto de hundido -->
+    <item android:top="0dp" android:left="0dp" android:right="0dp" android:bottom="4dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#E0E0E0" /> <!-- Color de sombra -->
+            <corners android:radius="8dp" />
+        </shape>
+    </item>
+
+</layer-list>
