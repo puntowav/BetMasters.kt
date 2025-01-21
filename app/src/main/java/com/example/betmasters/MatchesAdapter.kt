@@ -3,7 +3,6 @@ package com.example.betmasters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.betmasters.R
 
 
 class MatchesAdapter(var matches: List<Match>):RecyclerView.Adapter<MatchesViewHolder>(){

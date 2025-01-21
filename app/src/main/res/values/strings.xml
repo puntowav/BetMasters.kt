@@ -23,9 +23,6 @@
     <string name="juego_parejas">Juego de las Parejas</string>
     <string name="juego_ruleta">Juego de la Ruleta</string>
     <string name="juego_trilero">Juego del Trilero</string>
-    <string name="logitech_g733">Logitech g733</string>
-    <string name="random_key_stream">Random Key Stream</string>
-    <string name="google_play_card">Google Play Card</string>
     <string name="itunes_card">iTunes Card</string>
     <string name="coins">Coins</string>
     <string name="resultado">Resultado</string>
@@ -39,4 +36,5 @@
     <string name="user_password">1234567890</string>
     <string name="sumarry_profile">Contraseña, seguridad, detalles pesonales, añadir preferecnias</string>
     <string name="prefernces">Preferencias de cuenta</string>
+    <string name="redeem">Redeem</string>
 </resources>
