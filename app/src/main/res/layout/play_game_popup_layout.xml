@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linearLayoutMyBets"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/rounded_background2"
+    android:backgroundTint="@color/backgroundGameDetails"
+    android:gravity="center|top"
+    android:layout_margin="50dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Instrucciones:"
+        android:textStyle="bold"
+        android:textSize="30dp"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Selecciona el vaso que crees que tiene la bolita debajo. Si aciertas te llevas premio, sino pierdes tus monedas."
+        android:textSize="16dp"
+        android:layout_margin="8dp"/>
+
+    <Button
+        android:id="@+id/btnPlay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Jugar"
+        android:layout_gravity="end"
+        android:layout_margin="8dp"/>
+
+
+</LinearLayout>
