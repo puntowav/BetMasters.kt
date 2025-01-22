@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:text="08:00:00"
                 android:layout_gravity="center"
-                android:visibility="visible"/>
+                android:visibility="invisible"/>
         </LinearLayout>
 
         <LinearLayout
@@ -64,7 +64,7 @@
                 android:layout_height="wrap_content"
                 android:text="08:00:00"
                 android:layout_gravity="center"
-                android:visibility="visible"/>
+                android:visibility="invisible"/>
         </LinearLayout>
 
         <LinearLayout
@@ -85,7 +85,7 @@
                 android:layout_height="wrap_content"
                 android:text="08:00:00"
                 android:layout_gravity="center"
-                android:visibility="visible"/>
+                android:visibility="invisible"/>
         </LinearLayout>
 
         <LinearLayout
@@ -106,7 +106,7 @@
                 android:layout_height="wrap_content"
                 android:text="08:00:00"
                 android:layout_gravity="center"
-                android:visibility="visible"/>
+                android:visibility="invisible"/>
         </LinearLayout>
 
         <LinearLayout
@@ -127,7 +127,7 @@
                 android:layout_height="wrap_content"
                 android:text="08:00:00"
                 android:layout_gravity="center"
-                android:visibility="visible"/>
+                android:visibility="invisible"/>
         </LinearLayout>
 
 
@@ -161,7 +161,9 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/cardview_matches">
+                android:background="@color/cardview_matches"
+                android:focusable="false"
+                android:clickable="false">
 
                 <ImageView
                     android:id="@+id/ivTrilero"
