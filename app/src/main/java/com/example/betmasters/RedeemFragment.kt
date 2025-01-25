@@ -13,12 +13,12 @@ import androidx.recyclerview.widget.RecyclerView.LayoutManager
 class RedeemFragment : Fragment() {
 
     private val items = listOf(
-        ItemRedeem.BigItem("texto sample big item", 1000, R.drawable.g733),
-        ItemRedeem.ThinItem("texto sample thin item", 1000, R.drawable.randomkey),
+        ItemRedeem.BigItem("Logitech G733", 6000, R.drawable.g733),
+        ItemRedeem.ThinItem("Steam random key", 500, R.drawable.randomkey),
         ItemRedeem.HorizontalRv(
             listOf(
-                Card("card 1", 1000, R.drawable.applecard),
-                Card("card 2", 1000, R.drawable.googleplay)
+                Card("Itunes 15$ card", 1000, R.drawable.applecard),
+                Card("Play Store 10$ card", 1000, R.drawable.googleplay)
             )
         )
     )

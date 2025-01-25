@@ -28,9 +28,8 @@ class GamesFragment : Fragment() {
 
     var maxMonedas: Int = 5
     var monedasActuales: Int = 5
-    var tiempoRecarga: Long = 8 * 1000
+    var tiempoRecarga: Long = 8 * 1000 // 8 segundos
 
-    private var currentTimer: CustomCountDownTimer? = null
     private var activeCoin: Coin? = null
     private val pendingCoins = mutableListOf<Coin>()
 
@@ -78,13 +77,19 @@ class GamesFragment : Fragment() {
                 it.isAvailable = false
                 monedasActuales--
                 it.imageView.setImageResource(R.drawable.coin_stamina_gray)
-                val newTime = activeCoin?.remainingTime ?: tiempoRecarga
+
                 if(activeCoin != null){
+                    val remainingTime = activeCoin!!.remainingTime
                     activeCoin!!.countDownTimer?.cancel()
                     activeCoin!!.remainingTime = tiempoRecarga
                     pendingCoins.add(activeCoin!!)
+                    activeCoin = null
+                    it.remainingTime = remainingTime
                 }
-                it.remainingTime = newTime
+                else{
+                    it.remainingTime = tiempoRecarga
+                }
+
                 it.timerTextView.visibility = View.VISIBLE
                 it.timerTextView.text = formatTime(it.remainingTime)
                 activeCoin = it
@@ -97,7 +102,7 @@ class GamesFragment : Fragment() {
     }
 
     private fun iniciarTemporizador(moneda: Coin){
-        currentTimer = CustomCountDownTimer(moneda.remainingTime, 1000,
+        moneda.countDownTimer = CustomCountDownTimer(moneda.remainingTime, 1000,
             onTickCallback = { millisUntilFinished ->
                 moneda.remainingTime = millisUntilFinished
                 moneda.timerTextView.text = formatTime(millisUntilFinished)
@@ -108,17 +113,18 @@ class GamesFragment : Fragment() {
                 moneda.imageView.setImageResource(R.drawable.coin_stamina)
                 moneda.timerTextView.visibility = View.INVISIBLE
                 moneda.countDownTimer = null
-                activeCoin = null
-                currentTimer = null
+
                 if(pendingCoins.isNotEmpty()){
                     val siguienteMoneda = pendingCoins.removeAt(0)
                     activeCoin = siguienteMoneda
                     iniciarTemporizador(siguienteMoneda)
                 }
+                else{
+                    activeCoin = null
+                }
             }
         )
-        moneda.countDownTimer = currentTimer
-        currentTimer?.start()
+        moneda.countDownTimer?.start()
     }
 
     private fun formatTime(millisUntilFinished: Long): String {

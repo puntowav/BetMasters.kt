@@ -69,10 +69,6 @@ class Main : AppCompatActivity(), DialogCallBack {
 
         drawer_menu.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
-                R.id.profile -> {
-                    val intent = Intent(this, Edit_profile::class.java)
-                    startActivity(intent)
-                }
                 R.id.settings -> {
                     val intent = Intent(this, SettingsActivity::class.java)
                     startActivity(intent)
