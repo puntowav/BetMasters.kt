@@ -1,19 +1,14 @@
 package com.example.betmasters
 
-import android.content.Context
-import android.content.Context.MODE_PRIVATE
-import android.content.SharedPreferences
 import android.os.Bundle
-import android.os.CountDownTimer
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
-import kotlin.math.min
-
 
 class GamesFragment : Fragment() {
 
@@ -29,12 +24,15 @@ class GamesFragment : Fragment() {
     lateinit var ivCoin5: ImageView
     lateinit var cvTrilero: CardView
 
-    var maxMonedas: Int = 5 // Número máximo de monedas
-    var monedasActuales: Int = 5 // Monedas disponibles al inicio
-    var tiempoRecarga: Long = (8 * 60 * 60 * 100).toLong() // 8 horas en milisegundos
+    lateinit var coins: List<Coin>
 
+    var maxMonedas: Int = 5
+    var monedasActuales: Int = 5
+    var tiempoRecarga: Long = 8 * 1000
 
-
+    private var currentTimer: CustomCountDownTimer? = null
+    private var activeCoin: Coin? = null
+    private val pendingCoins = mutableListOf<Coin>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,47 +40,9 @@ class GamesFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_games, container, false)
         initComponent(view)
-
-        var sharedPreferences = requireContext().getSharedPreferences("staminaPrefs", Context.MODE_PRIVATE)
-        var editor: SharedPreferences.Editor = sharedPreferences.edit()
-        var ultimoUso: Long = sharedPreferences.getLong("ultimoUso", 0)
-        var tiempoActual: Long = System.currentTimeMillis()
-
-        if (ultimoUso > 0) {
-            val tiempoPasado = tiempoActual - ultimoUso
-            val monedasRecargadas = (tiempoPasado / tiempoRecarga).toInt()
-            monedasActuales =
-                min(maxMonedas.toDouble(), (monedasActuales + monedasRecargadas).toDouble()).toInt()
-
-            // Actualiza el tiempo del último uso si aún hay monedas que recargar
-            if (monedasActuales < maxMonedas) {
-                val tiempoRestante = tiempoRecarga - (tiempoPasado % tiempoRecarga)
-                editor.putLong("tiempoRestante", tiempoRestante)
-            }
-        }
-
-        val tiempoRestante = sharedPreferences.getLong("tiempoRestante", tiempoRecarga)
-
-        object : CountDownTimer(tiempoRestante, 1000) {
-            override fun onTick(millisUntilFinished: Long) {
-                val horas = (millisUntilFinished / (1000 * 60 * 60)).toInt()
-                val minutos = ((millisUntilFinished / (1000 * 60)) % 60).toInt()
-                val segundos = ((millisUntilFinished / 1000) % 60).toInt()
-
-                val tiempo = String.format("%02d:%02d:%02d", horas, minutos, segundos)
-                txtTimer5.setText(tiempo) // Actualiza un TextView con el tiempo restante
-            }
-
-            override fun onFinish() {
-            }
-
-        }.start()
-
         cvTrilero.setOnClickListener {
-            // abre un fragment
+            gastaMonedas()
         }
-
-
         return view
     }
 
@@ -98,6 +58,73 @@ class GamesFragment : Fragment() {
         ivCoin4 = view.findViewById(R.id.ivCoin4)
         ivCoin5 = view.findViewById(R.id.ivCoin5)
         cvTrilero = view.findViewById(R.id.cvGameTrilero)
+
+        coins = listOf(
+            Coin(ivCoin1, txtTimer1),
+            Coin(ivCoin2, txtTimer2),
+            Coin(ivCoin3, txtTimer3),
+            Coin(ivCoin4, txtTimer4),
+            Coin(ivCoin5, txtTimer5)
+        )
+
+        coins.forEach { it.remainingTime = tiempoRecarga }
+        coins.forEach { it.timerTextView.visibility = View.INVISIBLE }
     }
 
+    private fun gastaMonedas(){
+        if(monedasActuales > 0){
+            val moneda = coins.lastOrNull { it.isAvailable }
+            moneda?.let{
+                it.isAvailable = false
+                monedasActuales--
+                it.imageView.setImageResource(R.drawable.coin_stamina_gray)
+                val newTime = activeCoin?.remainingTime ?: tiempoRecarga
+                if(activeCoin != null){
+                    activeCoin!!.countDownTimer?.cancel()
+                    activeCoin!!.remainingTime = tiempoRecarga
+                    pendingCoins.add(activeCoin!!)
+                }
+                it.remainingTime = newTime
+                it.timerTextView.visibility = View.VISIBLE
+                it.timerTextView.text = formatTime(it.remainingTime)
+                activeCoin = it
+                iniciarTemporizador(it)
+            }
+        }
+        else{
+            Toast.makeText(context, "No hay monedas disponibles", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun iniciarTemporizador(moneda: Coin){
+        currentTimer = CustomCountDownTimer(moneda.remainingTime, 1000,
+            onTickCallback = { millisUntilFinished ->
+                moneda.remainingTime = millisUntilFinished
+                moneda.timerTextView.text = formatTime(millisUntilFinished)
+            },
+            onFinishCallback = {
+                moneda.isAvailable = true
+                monedasActuales++
+                moneda.imageView.setImageResource(R.drawable.coin_stamina)
+                moneda.timerTextView.visibility = View.INVISIBLE
+                moneda.countDownTimer = null
+                activeCoin = null
+                currentTimer = null
+                if(pendingCoins.isNotEmpty()){
+                    val siguienteMoneda = pendingCoins.removeAt(0)
+                    activeCoin = siguienteMoneda
+                    iniciarTemporizador(siguienteMoneda)
+                }
+            }
+        )
+        moneda.countDownTimer = currentTimer
+        currentTimer?.start()
+    }
+
+    private fun formatTime(millisUntilFinished: Long): String {
+        val segundos = (millisUntilFinished / 1000).toInt()
+        val minutos = (segundos / 60) % 60
+        val segundosRestantes = segundos % 60
+        return String.format("%02d:%02d", minutos, segundosRestantes)
+    }
 }
