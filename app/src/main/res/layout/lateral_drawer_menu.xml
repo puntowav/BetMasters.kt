@@ -20,7 +20,8 @@
             android:orientation="vertical"
             android:gravity="center"
             android:focusable="false"
-            android:clickable="false">
+            android:clickable="false"
+            android:layout_margin="4dp">
 
             <ImageView
                 android:layout_width="75dp"
