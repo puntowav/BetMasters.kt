@@ -35,6 +35,7 @@ class Main : AppCompatActivity(), DialogCallBack {
         updateCoins()
 
         val buttonShowDialog = findViewById<MaterialButton>(R.id.fabMisApuestas)
+        //TODO: Hacer peticion GET
         buttonShowDialog.setOnClickListener {
             // Instancia y muestra el DialogFragment
             val dialogFragment = MyBetsDialogFragment(this)

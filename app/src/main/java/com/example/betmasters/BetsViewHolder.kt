@@ -16,7 +16,7 @@ class BetsViewHolder(view: View, private val callBack: DialogCallBack) : Recycle
     private val btnModify: MaterialButton = view.findViewById(R.id.fabModificar)
     private val btnDelete: MaterialButton = view.findViewById(R.id.fabEliminar)
 
-
+    //TODO: Añadir funcion de modificar
     fun render(bet : Bet, adapter: BetAdapter){
         txtMatch.text = bet.match
         txtBet.text = bet.bet
@@ -37,7 +37,7 @@ class BetsViewHolder(view: View, private val callBack: DialogCallBack) : Recycle
             builder.setMessage("¿Estás seguro de que deseas eliminar esta apuesta?\n Solo recibiras el 80% de las monedas apostadas.")
 
             builder.setPositiveButton("Eliminar") { dialog, _ ->
-
+                //TODO: Hacer el delete aquí
                 MyBetsDialogFragment.bets.remove(Bet(bet.match, bet.team, bet.bet, bet.win))
                 HomeFragment.coins += (bet.bet.toFloat()* (bet.bet.toFloat()/bet.win.toFloat()))
                 adapter.notifyDataSetChanged()

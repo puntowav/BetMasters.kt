@@ -13,6 +13,7 @@ class MyBetsDialogFragment(private val callBack: DialogCallBack): DialogFragment
     private lateinit var rvBets: RecyclerView
     private lateinit var betAdapter: BetAdapter
     companion object{
+        //TODO: lista donde se hacen los add, de las Bet
         val bets = mutableListOf<Bet>()
     }
 

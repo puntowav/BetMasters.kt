@@ -356,12 +356,15 @@ class ExpandableCardActivity2: BottomSheetDialogFragment() {
                 HomeFragment.coins -= txtBet.text.toString().toFloat()
                 val mainActivity = activity as? Main
                 mainActivity?.updateCoins()
+                //TODO: Añadir aqui la instancia de la BET, para hacer el add
+                //TODO: No tiene que hacer add si no solo hacer post a la API
                 if(isTeam1Selected) {
                     MyBetsDialogFragment.bets.add(Bet(matchNameString, tvTeam1.text.toString(), txtBet.text.toString(), txtWin.text.toString()))
                 }else{
                     MyBetsDialogFragment.bets.add(Bet(matchNameString, tvTeam2.text.toString(), txtBet.text.toString(), txtWin.text.toString()))
 
                 }
+                //TODO: Añadir aqui el post a la API
                 dismiss()
             }
         } else {
