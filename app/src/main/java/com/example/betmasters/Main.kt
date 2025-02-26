@@ -2,6 +2,7 @@ package com.example.betmasters
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
@@ -9,11 +10,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
+import com.example.betmasters.ApiRetrofit.LoginAPI
 import com.example.betmasters.HomeFragment.Companion.coins
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.internal.NavigationMenu
 import com.google.android.material.navigation.NavigationView
+import kotlinx.coroutines.launch
 
 class Main : AppCompatActivity(), DialogCallBack {
     private lateinit var txtCoins : TextView
@@ -49,19 +53,6 @@ class Main : AppCompatActivity(), DialogCallBack {
                 drawerLayout.openDrawer(drawer_menu) // Abre el Drawer si está cerrado
             }
         }
-
-        /*cvNavigate.setOnClickListener {
-            val intent = Intent(this, SettingsActivity::class.java)
-            val selectedItemId = bottomNavigationView.selectedItemId
-            val source = when(selectedItemId){
-                R.id.home -> "home"
-                R.id.game -> "game"
-                R.id.redeem -> "redeem"
-                else -> "home"
-            }
-            intent.putExtra("source", "home")
-            startActivity(intent)
-        }*/
 
         cvNavigate.setOnClickListener {
             val intent = Intent(this, Edit_profile::class.java)
@@ -104,6 +95,19 @@ class Main : AppCompatActivity(), DialogCallBack {
         }
         if (savedInstanceState == null) {
             bottomNavigationView.selectedItemId = R.id.home
+        }
+
+        lifecycleScope.launch {
+            try {
+                val response = LoginAPI.API().getBets()
+                if(response.isSuccessful){
+                    val bets = response.body() ?: emptyList()
+                    MyBetsDialogFragment.bets.clear()
+                    MyBetsDialogFragment.bets.addAll(bets)
+                }
+            }catch (e: Exception){
+                Log.e("Add all bets", "Error al añadir todas las bets de la API", e)
+            }
         }
     }
 

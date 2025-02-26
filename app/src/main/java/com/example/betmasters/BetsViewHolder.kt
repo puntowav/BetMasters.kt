@@ -1,10 +1,16 @@
 package com.example.betmasters
 import android.app.AlertDialog
+import android.util.Log
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.example.betmasters.ApiRetrofit.LoginAPI
 import com.google.android.material.button.MaterialButton
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.Dispatchers
+import okhttp3.internal.notifyAll
 
 
 class BetsViewHolder(view: View, private val callBack: DialogCallBack) : RecyclerView.ViewHolder(view){
@@ -38,11 +44,21 @@ class BetsViewHolder(view: View, private val callBack: DialogCallBack) : Recycle
 
             builder.setPositiveButton("Eliminar") { dialog, _ ->
                 //TODO: Hacer el delete aquí
-                MyBetsDialogFragment.bets.remove(Bet(bet.match, bet.team, bet.bet, bet.win))
-                HomeFragment.coins += (bet.bet.toFloat()* (bet.bet.toFloat()/bet.win.toFloat()))
-                adapter.notifyDataSetChanged()
-                callBack.onCoinsUpdated()
-                dialog.dismiss()
+                GlobalScope.launch(Dispatchers.Main){
+                    try {
+                        val response = LoginAPI.API().deleteBet(bet.id)
+                        if(response.isSuccessful){
+                            MyBetsDialogFragment.bets.remove(bet)
+                            HomeFragment.coins += (bet.bet.toFloat()* (bet.bet.toFloat()/bet.win.toFloat()))
+                            adapter.notifyDataSetChanged()
+                            callBack.onCoinsUpdated()
+                        }
+                    }catch (e: Exception){
+                        Log.e("Error delete", "error al usar delete de la bet", e)
+                    }finally {
+                        dialog.dismiss()
+                    }
+                }
             }
 
             builder.setNegativeButton("Cancelar") { dialog, _ ->

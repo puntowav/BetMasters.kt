@@ -1,5 +1,7 @@
 package com.example.betmasters.ApiRetrofit
 
+import com.example.betmasters.Bet
+import com.example.betmasters.ApiRetrofit.ApiResponse
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -8,6 +10,7 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.Body
+import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Path
@@ -19,10 +22,16 @@ import javax.net.ssl.SSLSocketFactory
 import javax.net.ssl.TrustManager
 import javax.net.ssl.X509TrustManager
 
-
-
 interface LoginService {
     //TODO: Hacer metodos get post put delete
+    @POST("bets/")
+    suspend fun createBet(@Body bet: Bet):Response<Bet>
+
+    @DELETE("bets/{id}")
+    suspend fun  deleteBet(@Path("id") id: Int):Response<ApiResponse>
+
+    @GET("bets/")
+    suspend fun getBets():Response<List<Bet>>
 }
 
 class LoginAPI{
@@ -42,7 +51,7 @@ class LoginAPI{
                     .create();
                 mAPI = Retrofit.Builder()
                     .addConverterFactory(GsonConverterFactory.create(gsondateformat))
-                    .baseUrl("https://54.227.126.88")
+                    .baseUrl("https://54.227.126.88/")
                     .client(client)
                     .build()
                     .create(LoginService::class.java)
