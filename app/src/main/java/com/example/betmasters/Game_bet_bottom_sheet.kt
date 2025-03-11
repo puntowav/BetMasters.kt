@@ -326,7 +326,7 @@ class ExpandableCardActivity2: BottomSheetDialogFragment() {
 
     }
 
-    private fun updateTxtWin(cvTeam1: CardView, cvTeam2: CardView, txtMulti1: TextView, txtMulti2: TextView, txtBet: TextView, txtWin: TextView, editText: EditText ) {
+    fun updateTxtWin(cvTeam1: CardView, cvTeam2: CardView, txtMulti1: TextView, txtMulti2: TextView, txtBet: TextView, txtWin: TextView, editText: EditText ) {
         val colorGris = ContextCompat.getColor(cvTeam1.context, R.color.gris)
         var bet = txtBet.text.toString().trim().toFloatOrNull() ?: 0f
         var resultado = 0f

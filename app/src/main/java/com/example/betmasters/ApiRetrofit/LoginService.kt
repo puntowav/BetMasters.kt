@@ -1,7 +1,6 @@
 package com.example.betmasters.ApiRetrofit
 
 import com.example.betmasters.Bet
-import com.example.betmasters.ApiRetrofit.ApiResponse
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -13,6 +12,7 @@ import retrofit2.http.Body
 import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.PUT
 import retrofit2.http.Path
 import java.security.SecureRandom
 import java.security.cert.CertificateException
@@ -32,6 +32,9 @@ interface LoginService {
 
     @GET("bets/")
     suspend fun getBets():Response<List<Bet>>
+
+    @PUT("bets/{id}")
+    suspend fun updateBet(@Path("id") id: Int, @Body bet: Bet):Response<Bet>
 }
 
 class LoginAPI{

@@ -6,6 +6,6 @@ data class Bet (
     val id: Int = 0,
     @SerializedName("partido") val match: String,
     val team: String,
-    val bet: String,
-    val win: String) {
+    var bet: String,
+    var win: String) {
 }
