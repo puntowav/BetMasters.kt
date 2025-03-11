@@ -1,10 +1,6 @@
 package com.example.betmasters
 
-import android.content.Context
-import android.content.Context.MODE_PRIVATE
-import android.content.SharedPreferences
 import android.os.Bundle
-import android.os.CountDownTimer
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,8 +9,6 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
-import kotlin.math.min
-
 
 class GamesFragment : Fragment() {
 
@@ -30,18 +24,14 @@ class GamesFragment : Fragment() {
     lateinit var ivCoin5: ImageView
     lateinit var cvTrilero: CardView
 
-    var maxMonedas: Int = 5 // Número máximo de monedas
-    var monedasActuales: Int = 5 // Monedas disponibles al inicio
-    var tiempoRecarga: Long = (1000 * 10).toLong() // 10 seg en milisegundos
+    lateinit var coins: List<Coin>
 
-    // Variables globales para manejar los temporizadores y estados
-    // Inicializar con 5 elementos para las monedas
-    private var temporizadores = MutableList<CountDownTimer?>(5) { null } // Inicialmente todos son null
-    private var tiemposRestantes = MutableList<Long>(5) { 10000L } // Todos empiezan con 10 segundos
-    private var temporizadorActivo = -1 // Indica cuál temporizador está activo (-1 significa ninguno)
+    var maxMonedas: Int = 5
+    var monedasActuales: Int = 5
+    var tiempoRecarga: Long = 8 * 1000 // 8 segundos
 
-
-
+    private var activeCoin: Coin? = null
+    private val pendingCoins = mutableListOf<Coin>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -49,96 +39,9 @@ class GamesFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_games, container, false)
         initComponent(view)
-
-        var sharedPreferences = requireContext().getSharedPreferences("staminaPrefs", Context.MODE_PRIVATE)
-        monedasActuales = sharedPreferences.getInt("monedasActuales", 5)
-        tiemposRestantes = MutableList(5) { i ->
-            sharedPreferences.getLong("tiempoRestante_$i", 10000L)
-        }
-        var editor: SharedPreferences.Editor = sharedPreferences.edit()
-        var ultimoUso: Long = sharedPreferences.getLong("ultimoUso", 0)
-        var tiempoActual: Long = System.currentTimeMillis()
-
-        if (ultimoUso > 0) {
-            val tiempoPasado = tiempoActual - ultimoUso
-            val monedasRecargadas = (tiempoPasado / tiempoRecarga).toInt()
-            monedasActuales =
-                min(maxMonedas.toDouble(), (monedasActuales + monedasRecargadas).toDouble()).toInt()
-
-            // Actualiza el tiempo del último uso si aún hay monedas que recargar
-            if (monedasActuales < maxMonedas) {
-                val tiempoRestante = tiempoRecarga - (tiempoPasado % tiempoRecarga)
-                editor.putLong("tiempoRestante", tiempoRestante)
-            }
-        }
-
-        val tiempoRestante = sharedPreferences.getLong("tiempoRestante", tiempoRecarga)
-
-        /*object : CountDownTimer(tiempoRestante, 1000) {
-            override fun onTick(millisUntilFinished: Long) {
-                val horas = (millisUntilFinished / (1000 * 60 * 60)).toInt()
-                val minutos = ((millisUntilFinished / (1000 * 60)) % 60).toInt()
-                val segundos = ((millisUntilFinished / 1000) % 60).toInt()
-
-                //val tiempo = String.format("%02d:%02d:%02d", horas, minutos, segundos)
-                val tiempo = String.format("%02d:%02d", minutos, segundos)
-                txtTimer5.setText(tiempo) // Actualiza un TextView con el tiempo restante
-            }
-
-            override fun onFinish() {
-            }
-
-        }.start()*/
-
-        /*cvTrilero.setOnClickListener {
-            if (monedasActuales > 0) {
-                when (monedasActuales) {
-                    5 -> {
-                        ivCoin5.setImageResource(R.drawable.coin_stamina_gray)
-                        txtTimer5.visibility = View.VISIBLE
-                        iniciarContador(txtTimer5, 5)
-                    }
-                    4 -> {
-                        ivCoin4.setImageResource(R.drawable.coin_stamina_gray)
-                        txtTimer4.visibility = View.VISIBLE
-                        iniciarContador(txtTimer4, 4)
-                    }
-                    3 -> {
-                        ivCoin3.setImageResource(R.drawable.coin_stamina_gray)
-                        txtTimer3.visibility = View.VISIBLE
-                        iniciarContador(txtTimer3, 3)
-                    }
-                    2 -> {
-                        ivCoin2.setImageResource(R.drawable.coin_stamina_gray)
-                        txtTimer2.visibility = View.VISIBLE
-                        iniciarContador(txtTimer2, 2)
-                    }
-                    1 -> {
-                        ivCoin1.setImageResource(R.drawable.coin_stamina_gray)
-                        txtTimer1.visibility = View.VISIBLE
-                        iniciarContador(txtTimer1, 1)
-                    }
-                }
-                monedasActuales -= 1
-                guardarEstado() // Guardar monedas y último uso en SharedPreferences
-            } else {
-                Toast.makeText(context, "No tienes más monedas disponibles", Toast.LENGTH_SHORT).show()
-            }
-        }*/
         cvTrilero.setOnClickListener {
-            if (monedasActuales > 0) {
-                for (i in 4 downTo 0) { // Iteramos de la última moneda activa hacia la primera
-                    if (tiemposRestantes[i] == 10000L && (temporizadorActivo == -1 || i < temporizadorActivo)) {
-                        activarTemporizador(i)
-                        break
-                    }
-                }
-            } else {
-                Toast.makeText(context, "No tienes más monedas disponibles", Toast.LENGTH_SHORT).show()
-            }
+            gastaMonedas()
         }
-
-
         return view
     }
 
@@ -154,97 +57,80 @@ class GamesFragment : Fragment() {
         ivCoin4 = view.findViewById(R.id.ivCoin4)
         ivCoin5 = view.findViewById(R.id.ivCoin5)
         cvTrilero = view.findViewById(R.id.cvGameTrilero)
+
+        coins = listOf(
+            Coin(ivCoin1, txtTimer1),
+            Coin(ivCoin2, txtTimer2),
+            Coin(ivCoin3, txtTimer3),
+            Coin(ivCoin4, txtTimer4),
+            Coin(ivCoin5, txtTimer5)
+        )
+
+        coins.forEach { it.remainingTime = tiempoRecarga }
+        coins.forEach { it.timerTextView.visibility = View.INVISIBLE }
     }
 
+    private fun gastaMonedas(){
+        if(monedasActuales > 0){
+            val moneda = coins.lastOrNull { it.isAvailable }
+            moneda?.let{
+                it.isAvailable = false
+                monedasActuales--
+                it.imageView.setImageResource(R.drawable.coin_stamina_gray)
 
-    private fun guardarEstado() {
-        val sharedPreferences = requireContext().getSharedPreferences("staminaPrefs", Context.MODE_PRIVATE)
-        val editor = sharedPreferences.edit()
-        editor.putInt("monedasActuales", monedasActuales)
-        editor.putLong("ultimoUso", System.currentTimeMillis())
-        editor.apply()
-    }
-
-    private fun activarTemporizador(posicion: Int) {
-        if (posicion !in 0..4) return // Verifica que la posición sea válida
-
-        if (temporizadorActivo != -1) {
-            // Si hay un temporizador activo, pausarlo y reiniciarlo con 10 segundos
-            detenerTemporizador(temporizadorActivo)
-            tiemposRestantes[temporizadorActivo] = 10000L
-        }
-
-        temporizadorActivo = posicion // Establecemos cuál es el temporizador activo
-        iniciarContador(posicion) // Iniciamos el temporizador seleccionado
-    }
-
-
-
-    private fun iniciarContador(posicion: Int) {
-        if (posicion !in 0..4) return // Verifica que la posición sea válida
-
-        val txtTimer = when (posicion) {
-            0 -> txtTimer1
-            1 -> txtTimer2
-            2 -> txtTimer3
-            3 -> txtTimer4
-            4 -> txtTimer5
-            else -> return
-        }
-        val ivCoin = when (posicion) {
-            0 -> ivCoin1
-            1 -> ivCoin2
-            2 -> ivCoin3
-            3 -> ivCoin4
-            4 -> ivCoin5
-            else -> return
-        }
-
-        txtTimer.visibility = View.VISIBLE
-        ivCoin.setImageResource(R.drawable.coin_stamina_gray)
-
-        temporizadores[posicion]?.cancel() // Cancela cualquier temporizador existente en esta posición
-
-        temporizadores[posicion] = object : CountDownTimer(tiemposRestantes[posicion], 1000) {
-            override fun onTick(millisUntilFinished: Long) {
-                tiemposRestantes[posicion] = millisUntilFinished
-                val minutos = (millisUntilFinished / (1000 * 60)) % 60
-                val segundos = (millisUntilFinished / 1000) % 60
-                txtTimer.text = String.format("%02d:%02d", minutos, segundos)
-            }
-
-            override fun onFinish() {
-                tiemposRestantes[posicion] = 10000L // Reiniciamos el tiempo del temporizador terminado
-                txtTimer.visibility = View.GONE
-                ivCoin.setImageResource(R.drawable.coin_stamina)
-
-                monedasActuales += 1
-                guardarEstado() // Guardar monedas en SharedPreferences
-
-                // Reactiva el siguiente temporizador pausado, si existe
-                for (i in 1..4) { // Recorremos de menor a mayor prioridad
-                    if (tiemposRestantes[i] in 1..9999L) {
-                        // Si el temporizador está pausado (null) y tiene tiempo restante válido
-                        activarTemporizador(i) // Reactivamos el temporizador pausado
-                        return
-                    }
+                if(activeCoin != null){
+                    val remainingTime = activeCoin!!.remainingTime
+                    activeCoin!!.countDownTimer?.cancel()
+                    activeCoin!!.remainingTime = tiempoRecarga
+                    pendingCoins.add(activeCoin!!)
+                    activeCoin = null
+                    it.remainingTime = remainingTime
+                }
+                else{
+                    it.remainingTime = tiempoRecarga
                 }
 
-                // Si no hay temporizadores pausados, no hay temporizador activo
-                temporizadorActivo = -1
+                it.timerTextView.visibility = View.VISIBLE
+                it.timerTextView.text = formatTime(it.remainingTime)
+                activeCoin = it
+                iniciarTemporizador(it)
             }
-        }.start()
+        }
+        else{
+            Toast.makeText(context, "No hay monedas disponibles", Toast.LENGTH_SHORT).show()
+        }
     }
 
+    private fun iniciarTemporizador(moneda: Coin){
+        moneda.countDownTimer = CustomCountDownTimer(moneda.remainingTime, 1000,
+            onTickCallback = { millisUntilFinished ->
+                moneda.remainingTime = millisUntilFinished
+                moneda.timerTextView.text = formatTime(millisUntilFinished)
+            },
+            onFinishCallback = {
+                moneda.isAvailable = true
+                monedasActuales++
+                moneda.imageView.setImageResource(R.drawable.coin_stamina)
+                moneda.timerTextView.visibility = View.INVISIBLE
+                moneda.countDownTimer = null
 
-
-    private fun detenerTemporizador(posicion: Int) {
-        temporizadores[posicion]?.cancel()
-        temporizadores[posicion] = null
+                if(pendingCoins.isNotEmpty()){
+                    val siguienteMoneda = pendingCoins.removeAt(0)
+                    activeCoin = siguienteMoneda
+                    iniciarTemporizador(siguienteMoneda)
+                }
+                else{
+                    activeCoin = null
+                }
+            }
+        )
+        moneda.countDownTimer?.start()
     }
 
-
-
-
-
+    private fun formatTime(millisUntilFinished: Long): String {
+        val segundos = (millisUntilFinished / 1000).toInt()
+        val minutos = (segundos / 60) % 60
+        val segundosRestantes = segundos % 60
+        return String.format("%02d:%02d", minutos, segundosRestantes)
+    }
 }

@@ -3,6 +3,7 @@ package com.example.betmasters
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,7 +13,13 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
+import com.example.betmasters.ApiRetrofit.ApiResponse
+import com.example.betmasters.ApiRetrofit.LoginAPI
+import com.example.betmasters.ApiRetrofit.LoginService
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import kotlinx.coroutines.launch
 import kotlin.math.round
 
 class ExpandableCardActivity2: BottomSheetDialogFragment() {
@@ -356,13 +363,28 @@ class ExpandableCardActivity2: BottomSheetDialogFragment() {
                 HomeFragment.coins -= txtBet.text.toString().toFloat()
                 val mainActivity = activity as? Main
                 mainActivity?.updateCoins()
-                if(isTeam1Selected) {
-                    MyBetsDialogFragment.bets.add(Bet(matchNameString, tvTeam1.text.toString(), txtBet.text.toString(), txtWin.text.toString()))
+                //TODO: Añadir aqui la instancia de la BET, para hacer el add
+                //TODO: No tiene que hacer add si no solo hacer post a la API
+               val newBet = if(isTeam1Selected) {
+                    Bet(0, matchNameString, tvTeam1.text.toString(), txtBet.text.toString(), txtWin.text.toString())
                 }else{
-                    MyBetsDialogFragment.bets.add(Bet(matchNameString, tvTeam2.text.toString(), txtBet.text.toString(), txtWin.text.toString()))
-
+                    Bet(0, matchNameString, tvTeam2.text.toString(), txtBet.text.toString(), txtWin.text.toString())
                 }
-                dismiss()
+                //TODO: Añadir aqui el post a la API
+                lifecycleScope.launch {
+                    try {
+                        val createdBet = LoginAPI.API().createBet(newBet).body()
+                        if(createdBet != null){
+                            MyBetsDialogFragment.bets.add(createdBet)
+                        }else {
+                            Log.e("CreateBet", "La respuesta fue exitosa, pero el body es null")
+                        }
+                    }catch (e: Exception){
+                        Log.e("Create Bet", "Excepción al usar add pasando una Bet", e)
+                    }finally {
+                        dismiss()
+                    }
+                }
             }
         } else {
             btnBet.backgroundTintList = ContextCompat.getColorStateList(cvTeam1.context, R.color.grisBtnBetOff)

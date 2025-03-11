@@ -1,5 +1,11 @@
 package com.example.betmasters
 
-data class Bet (val match: String, val team: String, val bet: String, val win: String) {
+import com.google.gson.annotations.SerializedName
 
+data class Bet (
+    val id: Int = 0,
+    @SerializedName("partido") val match: String,
+    val team: String,
+    val bet: String,
+    val win: String) {
 }
