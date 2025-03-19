@@ -43,6 +43,7 @@ class HomeFragment : Fragment() {
     )
 
     companion object {
+
         var coins: Float = 9999f
         private const val PREFS_NAME = "app_preferences"
         private const val FAVORITES_KEY = "favoritos"

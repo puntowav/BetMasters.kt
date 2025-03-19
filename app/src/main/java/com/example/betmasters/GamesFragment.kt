@@ -1,5 +1,6 @@
 package com.example.betmasters
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,7 +11,7 @@ import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 
-class GamesFragment : Fragment() {
+class GamesFragment: Fragment(){
 
     lateinit var txtTimer1: TextView
     lateinit var txtTimer2: TextView
@@ -41,6 +42,10 @@ class GamesFragment : Fragment() {
         initComponent(view)
         cvTrilero.setOnClickListener {
             gastaMonedas()
+            HomeFragment.coins -= 50
+
+            val intent = Intent(requireContext(), Trilero::class.java)
+            startActivity(intent)
         }
         return view
     }
@@ -68,6 +73,11 @@ class GamesFragment : Fragment() {
 
         coins.forEach { it.remainingTime = tiempoRecarga }
         coins.forEach { it.timerTextView.visibility = View.INVISIBLE }
+
+
+
+
+
     }
 
     private fun gastaMonedas(){
@@ -133,4 +143,6 @@ class GamesFragment : Fragment() {
         val segundosRestantes = segundos % 60
         return String.format("%02d:%02d", minutos, segundosRestantes)
     }
+
+
 }
