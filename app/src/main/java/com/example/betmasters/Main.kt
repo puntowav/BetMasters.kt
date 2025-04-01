@@ -71,6 +71,10 @@ class Main : AppCompatActivity(), DialogCallBack {
                 R.id.tienda -> {
                     showToast("Tienda seleccionado")
                 }
+                R.id.stats -> {
+                    val intent2 = Intent(this, Estadisticas::class.java)
+                    startActivity(intent2)
+                }
                 else -> {
                     showToast("Opción no reconocida")
                 }
