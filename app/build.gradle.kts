@@ -64,4 +64,6 @@ dependencies {
     implementation( libs.kotlin.parcelize.runtime)
     testImplementation(libs.kotlinx.coroutines.test)
     testImplementation(libs.mockwebserver)
+    implementation(libs.datastore.preferences)
+    implementation(libs.mpandroidchart)
 }
