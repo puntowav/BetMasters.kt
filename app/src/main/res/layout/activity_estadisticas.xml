@@ -9,6 +9,16 @@
     android:orientation="vertical"
     tools:context=".Estadisticas">
 
+    <ImageButton
+        android:id="@+id/btnBack"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_gravity="start|top"
+        android:layout_margin="16dp"
+        style="@style/iconArrowBack"
+        android:elevation="4dp"
+        android:scaleType="centerCrop" />
+
     <TextView
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"

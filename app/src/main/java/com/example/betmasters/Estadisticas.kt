@@ -3,6 +3,8 @@ package com.example.betmasters
 import android.content.res.Configuration
 import android.graphics.Color
 import android.os.Bundle
+import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.datastore.preferences.core.intPreferencesKey
@@ -40,6 +42,12 @@ class Estadisticas : AppCompatActivity() {
             else -> tvTitle.setTextColor(Color.BLACK)
         }
 
+        val backBtn = findViewById<ImageButton>(R.id.btnBack)
+
+        backBtn.setOnClickListener {
+            finish()
+        }
+
         val pieChart = findViewById<PieChart>(R.id.pieChart)
         val barChart = findViewById<BarChart>(R.id.barChart)
 
@@ -73,12 +81,14 @@ class Estadisticas : AppCompatActivity() {
                         pieDataSet.valueTextColor = Color.WHITE
                         pieChart.setHoleColor(Color.BLACK)
                         pieChart.setTransparentCircleColor(Color.BLACK)
+                        pieChart.setEntryLabelColor(Color.WHITE)
                     }
                     else -> {
                         legend.textColor = Color.BLACK
                         pieDataSet.valueTextColor = Color.BLACK
                         pieChart.setHoleColor(Color.WHITE)
                         pieChart.setTransparentCircleColor(Color.WHITE)
+                        pieChart.setEntryLabelColor(Color.BLACK)
                     }
                 }
                 pieChart.description.isEnabled = false
