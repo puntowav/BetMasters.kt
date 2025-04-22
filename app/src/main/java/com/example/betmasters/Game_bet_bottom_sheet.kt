@@ -13,17 +13,24 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.viewModels
+import androidx.datastore.preferences.core.edit
+import androidx.datastore.preferences.core.intPreferencesKey
+import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.lifecycle.lifecycleScope
-import com.example.betmasters.ApiRetrofit.ApiResponse
 import com.example.betmasters.ApiRetrofit.LoginAPI
-import com.example.betmasters.ApiRetrofit.LoginService
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import kotlin.math.round
+import org.json.JSONObject
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
-class ExpandableCardActivity2: BottomSheetDialogFragment() {
+private val BET_DATA_KEY = stringPreferencesKey("betData")
 
+class ExpandableCardActivity2 : BottomSheetDialogFragment() {
     private lateinit var tvTeam1: TextView
     private lateinit var tvTeam2: TextView
     private lateinit var tvLiga: TextView
@@ -38,7 +45,6 @@ class ExpandableCardActivity2: BottomSheetDialogFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
-        // Inflar el layout del Bottom Sheet
         return inflater.inflate(R.layout.game_details_bottom_layout, container, false)
     }
 
@@ -53,7 +59,6 @@ class ExpandableCardActivity2: BottomSheetDialogFragment() {
         val txtMulti1: TextView = view.findViewById(R.id.txtMulti1)
         val txtMulti2: TextView = view.findViewById(R.id.txtMulti2)
 
-        // Obtener los datos del Bundle
         val bundle = arguments
         val team1 = bundle?.getString("team1")
         val team2 = bundle?.getString("team2")
@@ -86,303 +91,301 @@ class ExpandableCardActivity2: BottomSheetDialogFragment() {
         val editTextCustom: EditText = view.findViewById(R.id.etxtCustom)
         val txtBet: TextView = view.findViewById(R.id.txtBet)
         txtWin = view.findViewById(R.id.txtWin)
-        val btnBet : Button = view.findViewById(R.id.btnBet)
+        val btnBet: Button = view.findViewById(R.id.btnBet)
         val colorBlanco = ContextCompat.getColor(cvTeam1.context, R.color.white)
         val colorGris = ContextCompat.getColor(cvTeam1.context, R.color.gris)
         val colorBlue = ContextCompat.getColor(cvTeam1.context, R.color.cardBackground)
 
-
-
         cvTeam1.setOnClickListener {
             val currentColor = cvTeam1.cardBackgroundColor.defaultColor
-
             if (currentColor == colorBlanco) {
                 cvTeam1.setCardBackgroundColor(colorGris)
-                cvTeam1.cardElevation= 0f
+                cvTeam1.cardElevation = 0f
                 cvTeam2.setCardBackgroundColor(colorBlanco)
-                cvTeam2.cardElevation= 8f
-                updateTxtWin(cvTeam1, cvTeam2, txtMulti1, txtMulti2, txtBet, txtWin, editTextCustom)
-                updateBtnBetState(cvTeam1, cvTeam2, txtBet, btnBet)
+                cvTeam2.cardElevation = 8f
             } else {
                 cvTeam1.setCardBackgroundColor(colorBlanco)
-                cvTeam1.cardElevation= 8f
-                updateTxtWin(cvTeam1, cvTeam2, txtMulti1, txtMulti2, txtBet, txtWin, editTextCustom)
-                updateBtnBetState(cvTeam1, cvTeam2, txtBet, btnBet)
+                cvTeam1.cardElevation = 8f
             }
+            updateTxtWin(cvTeam1, cvTeam2, txtMulti1, txtMulti2, txtBet, txtWin, editTextCustom)
+            updateBtnBetState(cvTeam1, cvTeam2, txtBet, btnBet)
         }
         cvTeam2.setOnClickListener {
             val currentColor = cvTeam2.cardBackgroundColor.defaultColor
-
             if (currentColor == colorBlanco) {
                 cvTeam2.setCardBackgroundColor(colorGris)
-                cvTeam2.cardElevation= 0f
+                cvTeam2.cardElevation = 0f
                 cvTeam1.setCardBackgroundColor(colorBlanco)
-                cvTeam1.cardElevation= 8f
-                updateTxtWin(cvTeam1, cvTeam2, txtMulti1, txtMulti2, txtBet, txtWin, editTextCustom)
-                updateBtnBetState(cvTeam1, cvTeam2, txtBet, btnBet)
+                cvTeam1.cardElevation = 8f
             } else {
                 cvTeam2.setCardBackgroundColor(colorBlanco)
-                cvTeam1.cardElevation= 8f
-                updateTxtWin(cvTeam1, cvTeam2, txtMulti1, txtMulti2, txtBet, txtWin, editTextCustom)
-                updateBtnBetState(cvTeam1, cvTeam2, txtBet, btnBet)
+                cvTeam1.cardElevation = 8f
             }
+            updateTxtWin(cvTeam1, cvTeam2, txtMulti1, txtMulti2, txtBet, txtWin, editTextCustom)
+            updateBtnBetState(cvTeam1, cvTeam2, txtBet, btnBet)
         }
         cv5.setOnClickListener {
             val currentColor = cv5.cardBackgroundColor.defaultColor
-
             if (currentColor == colorBlanco) {
                 cv5.setCardBackgroundColor(colorGris)
-                cv5.cardElevation= 0f
+                cv5.cardElevation = 0f
                 cv20.setCardBackgroundColor(colorBlanco)
-                cv20.cardElevation= 8f
+                cv20.cardElevation = 8f
                 cv50.setCardBackgroundColor(colorBlanco)
-                cv50.cardElevation= 8f
+                cv50.cardElevation = 8f
                 cv100.setCardBackgroundColor(colorBlanco)
-                cv100.cardElevation= 8f
+                cv100.cardElevation = 8f
                 cv200.setCardBackgroundColor(colorBlanco)
-                cv200.cardElevation= 8f
+                cv200.cardElevation = 8f
                 cv500.setCardBackgroundColor(colorBlanco)
-                cv500.cardElevation= 8f
+                cv500.cardElevation = 8f
                 editTextCustom.setText("")
                 txtBet.text = "5"
-                updateTxtWin(cvTeam1, cvTeam2, txtMulti1, txtMulti2, txtBet, txtWin, editTextCustom)
-                updateBtnBetState(cvTeam1, cvTeam2, txtBet, btnBet)
-
             } else {
                 cv5.setCardBackgroundColor(colorBlanco)
-                cv5.cardElevation= 8f
+                cv5.cardElevation = 8f
                 txtBet.text = "0"
-                updateTxtWin(cvTeam1, cvTeam2, txtMulti1, txtMulti2, txtBet, txtWin, editTextCustom)
-                updateBtnBetState(cvTeam1, cvTeam2, txtBet, btnBet)
-
             }
+            updateTxtWin(cvTeam1, cvTeam2, txtMulti1, txtMulti2, txtBet, txtWin, editTextCustom)
+            updateBtnBetState(cvTeam1, cvTeam2, txtBet, btnBet)
         }
         cv20.setOnClickListener {
             val currentColor = cv20.cardBackgroundColor.defaultColor
-
             if (currentColor == colorBlanco) {
                 cv20.setCardBackgroundColor(colorGris)
-                cv20.cardElevation= 0f
+                cv20.cardElevation = 0f
                 cv5.setCardBackgroundColor(colorBlanco)
-                cv5.cardElevation= 8f
+                cv5.cardElevation = 8f
                 cv50.setCardBackgroundColor(colorBlanco)
-                cv50.cardElevation= 8f
+                cv50.cardElevation = 8f
                 cv100.setCardBackgroundColor(colorBlanco)
-                cv100.cardElevation= 8f
+                cv100.cardElevation = 8f
                 cv200.setCardBackgroundColor(colorBlanco)
-                cv200.cardElevation= 8f
+                cv200.cardElevation = 8f
                 cv500.setCardBackgroundColor(colorBlanco)
-                cv500.cardElevation= 8f
+                cv500.cardElevation = 8f
                 editTextCustom.setText("")
                 txtBet.text = "20"
-                updateTxtWin(cvTeam1, cvTeam2, txtMulti1, txtMulti2, txtBet, txtWin, editTextCustom)
-                updateBtnBetState(cvTeam1, cvTeam2, txtBet, btnBet)
-
             } else {
                 cv20.setCardBackgroundColor(colorBlanco)
-                cv20.cardElevation= 8f
+                cv20.cardElevation = 8f
                 txtBet.text = "0"
-                updateTxtWin(cvTeam1, cvTeam2, txtMulti1, txtMulti2, txtBet, txtWin, editTextCustom)
-                updateBtnBetState(cvTeam1, cvTeam2, txtBet, btnBet)
-
             }
+            updateTxtWin(cvTeam1, cvTeam2, txtMulti1, txtMulti2, txtBet, txtWin, editTextCustom)
+            updateBtnBetState(cvTeam1, cvTeam2, txtBet, btnBet)
         }
         cv50.setOnClickListener {
             val currentColor = cv50.cardBackgroundColor.defaultColor
-
             if (currentColor == colorBlanco) {
                 cv50.setCardBackgroundColor(colorGris)
-                cv50.cardElevation= 0f
+                cv50.cardElevation = 0f
                 cv20.setCardBackgroundColor(colorBlanco)
-                cv20.cardElevation= 8f
+                cv20.cardElevation = 8f
                 cv5.setCardBackgroundColor(colorBlanco)
-                cv5.cardElevation= 8f
+                cv5.cardElevation = 8f
                 cv100.setCardBackgroundColor(colorBlanco)
-                cv100.cardElevation= 8f
+                cv100.cardElevation = 8f
                 cv200.setCardBackgroundColor(colorBlanco)
-                cv200.cardElevation= 8f
+                cv200.cardElevation = 8f
                 cv500.setCardBackgroundColor(colorBlanco)
-                cv500.cardElevation= 8f
+                cv500.cardElevation = 8f
                 editTextCustom.setText("")
                 txtBet.text = "50"
-                updateTxtWin(cvTeam1, cvTeam2, txtMulti1, txtMulti2, txtBet, txtWin, editTextCustom)
-                updateBtnBetState(cvTeam1, cvTeam2, txtBet, btnBet)
-
             } else {
                 cv50.setCardBackgroundColor(colorBlanco)
-                cv50.cardElevation= 8f
+                cv50.cardElevation = 8f
                 txtBet.text = "0"
-                updateTxtWin(cvTeam1, cvTeam2, txtMulti1, txtMulti2, txtBet, txtWin, editTextCustom)
-                updateBtnBetState(cvTeam1, cvTeam2, txtBet, btnBet)
-
             }
+            updateTxtWin(cvTeam1, cvTeam2, txtMulti1, txtMulti2, txtBet, txtWin, editTextCustom)
+            updateBtnBetState(cvTeam1, cvTeam2, txtBet, btnBet)
         }
         cv100.setOnClickListener {
             val currentColor = cv100.cardBackgroundColor.defaultColor
-
             if (currentColor == colorBlanco) {
                 cv100.setCardBackgroundColor(colorGris)
-                cv100.cardElevation= 0f
+                cv100.cardElevation = 0f
                 cv20.setCardBackgroundColor(colorBlanco)
-                cv20.cardElevation= 8f
+                cv20.cardElevation = 8f
                 cv50.setCardBackgroundColor(colorBlanco)
-                cv50.cardElevation= 8f
+                cv50.cardElevation = 8f
                 cv5.setCardBackgroundColor(colorBlanco)
-                cv5.cardElevation= 8f
+                cv5.cardElevation = 8f
                 cv200.setCardBackgroundColor(colorBlanco)
-                cv200.cardElevation= 8f
+                cv200.cardElevation = 8f
                 cv500.setCardBackgroundColor(colorBlanco)
-                cv500.cardElevation= 8f
+                cv500.cardElevation = 8f
                 editTextCustom.setText("")
                 txtBet.text = "100"
-                updateTxtWin(cvTeam1, cvTeam2, txtMulti1, txtMulti2, txtBet, txtWin, editTextCustom)
-                updateBtnBetState(cvTeam1, cvTeam2, txtBet, btnBet)
-
             } else {
                 cv100.setCardBackgroundColor(colorBlanco)
-                cv100.cardElevation= 8f
+                cv100.cardElevation = 8f
                 txtBet.text = "0"
-                updateTxtWin(cvTeam1, cvTeam2, txtMulti1, txtMulti2, txtBet, txtWin, editTextCustom)
-                updateBtnBetState(cvTeam1, cvTeam2, txtBet, btnBet)
-
             }
+            updateTxtWin(cvTeam1, cvTeam2, txtMulti1, txtMulti2, txtBet, txtWin, editTextCustom)
+            updateBtnBetState(cvTeam1, cvTeam2, txtBet, btnBet)
         }
         cv200.setOnClickListener {
             val currentColor = cv200.cardBackgroundColor.defaultColor
-
             if (currentColor == colorBlanco) {
                 cv200.setCardBackgroundColor(colorGris)
-                cv200.cardElevation= 0f
+                cv200.cardElevation = 0f
                 cv20.setCardBackgroundColor(colorBlanco)
-                cv20.cardElevation= 8f
+                cv20.cardElevation = 8f
                 cv50.setCardBackgroundColor(colorBlanco)
-                cv50.cardElevation= 8f
+                cv50.cardElevation = 8f
                 cv100.setCardBackgroundColor(colorBlanco)
-                cv100.cardElevation= 8f
+                cv100.cardElevation = 8f
                 cv5.setCardBackgroundColor(colorBlanco)
-                cv5.cardElevation= 8f
+                cv5.cardElevation = 8f
                 cv500.setCardBackgroundColor(colorBlanco)
-                cv500.cardElevation= 8f
+                cv500.cardElevation = 8f
                 editTextCustom.setText("")
                 txtBet.text = "200"
-                updateTxtWin(cvTeam1, cvTeam2, txtMulti1, txtMulti2, txtBet, txtWin, editTextCustom)
-                updateBtnBetState(cvTeam1, cvTeam2, txtBet, btnBet)
-
             } else {
                 cv200.setCardBackgroundColor(colorBlanco)
-                cv200.cardElevation= 8f
+                cv200.cardElevation = 8f
                 txtBet.text = "0"
-                updateTxtWin(cvTeam1, cvTeam2, txtMulti1, txtMulti2, txtBet, txtWin, editTextCustom)
-                updateBtnBetState(cvTeam1, cvTeam2, txtBet, btnBet)
-
             }
+            updateTxtWin(cvTeam1, cvTeam2, txtMulti1, txtMulti2, txtBet, txtWin, editTextCustom)
+            updateBtnBetState(cvTeam1, cvTeam2, txtBet, btnBet)
         }
         cv500.setOnClickListener {
             val currentColor = cv500.cardBackgroundColor.defaultColor
-
             if (currentColor == colorBlanco) {
                 cv500.setCardBackgroundColor(colorGris)
-                cv500.cardElevation= 0f
+                cv500.cardElevation = 0f
                 cv20.setCardBackgroundColor(colorBlanco)
-                cv20.cardElevation= 8f
+                cv20.cardElevation = 8f
                 cv50.setCardBackgroundColor(colorBlanco)
-                cv50.cardElevation= 8f
+                cv50.cardElevation = 8f
                 cv100.setCardBackgroundColor(colorBlanco)
-                cv100.cardElevation= 8f
+                cv100.cardElevation = 8f
                 cv200.setCardBackgroundColor(colorBlanco)
-                cv200.cardElevation= 8f
+                cv200.cardElevation = 8f
                 cv5.setCardBackgroundColor(colorBlanco)
-                cv5.cardElevation= 8f
+                cv5.cardElevation = 8f
                 editTextCustom.setText("")
                 txtBet.text = "500"
-                updateTxtWin(cvTeam1, cvTeam2, txtMulti1, txtMulti2, txtBet, txtWin, editTextCustom)
-                updateBtnBetState(cvTeam1, cvTeam2, txtBet, btnBet)
-
             } else {
                 cv500.setCardBackgroundColor(colorBlanco)
-                cv500.cardElevation= 8f
+                cv500.cardElevation = 8f
                 txtBet.text = "0"
-                updateTxtWin(cvTeam1, cvTeam2, txtMulti1, txtMulti2, txtBet, txtWin, editTextCustom)
-                updateBtnBetState(cvTeam1, cvTeam2, txtBet, btnBet)
-
             }
+            updateTxtWin(cvTeam1, cvTeam2, txtMulti1, txtMulti2, txtBet, txtWin, editTextCustom)
+            updateBtnBetState(cvTeam1, cvTeam2, txtBet, btnBet)
         }
-        editTextCustom.addTextChangedListener(object : TextWatcher{
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-
-            }
-
+        editTextCustom.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) { }
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 txtBet.text = s.toString()
             }
-
             override fun afterTextChanged(s: Editable?) {
                 updateTxtWin(cvTeam1, cvTeam2, txtMulti1, txtMulti2, txtBet, txtWin, editTextCustom)
                 updateBtnBetState(cvTeam1, cvTeam2, txtBet, btnBet)
-
             }
-
         })
 
+        btnBet.setOnClickListener {
+            val betAmount = txtBet.text.toString().toFloat()
+            HomeFragment.coins -= betAmount
+            val mainActivity = activity as? Main
+            mainActivity?.updateCoins()
+            lifecycleScope.launch {
+                updateBetData(betAmount)
+                val newBet = if (cvTeam1.cardBackgroundColor.defaultColor == colorGris) {
+                    Bet(0, matchNameString, tvTeam1.text.toString(), txtBet.text.toString(), txtWin.text.toString())
+                } else {
+                    Bet(0, matchNameString, tvTeam2.text.toString(), txtBet.text.toString(), txtWin.text.toString())
+                }
+                try {
+                    val createdBet = LoginAPI.API().createBet(newBet).body()
+                    if (createdBet != null) {
+                        MyBetsDialogFragment.bets.add(createdBet)
+                    } else {
+                        Log.e("CreateBet", "La respuesta fue exitosa, pero el body es null")
+                    }
+                } catch (e: Exception) {
+                    Log.e("Create Bet", "Excepción al usar add pasando una Bet", e)
+                } finally {
+                    withContext(Dispatchers.Main) {
+                        dismiss()
+                    }
+                }
+            }
+        }
     }
 
-    fun updateTxtWin(cvTeam1: CardView, cvTeam2: CardView, txtMulti1: TextView, txtMulti2: TextView, txtBet: TextView, txtWin: TextView, editText: EditText ) {
+    private suspend fun updateBetData(amount: Float) {
+        val currentDate = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
+        requireContext().dataStore.edit { preferences ->
+            val currentData = preferences[BET_DATA_KEY] ?: "{}"
+            val jsonObject = JSONObject(currentData)
+            val currentAmount = jsonObject.optDouble(currentDate, 0.0)
+            jsonObject.put(currentDate, currentAmount + amount)
+            preferences[BET_DATA_KEY] = jsonObject.toString()
+        }
+    }
+
+    fun updateTxtWin(
+        cvTeam1: CardView,
+        cvTeam2: CardView,
+        txtMulti1: TextView,
+        txtMulti2: TextView,
+        txtBet: TextView,
+        txtWin: TextView,
+        editText: EditText
+    ) {
         val colorGris = ContextCompat.getColor(cvTeam1.context, R.color.gris)
         var bet = txtBet.text.toString().trim().toFloatOrNull() ?: 0f
         var resultado = 0f
-
-        if(editText.text.toString().isNotBlank()){
+        if (editText.text.toString().isNotBlank()) {
             bet = editText.text.toString().trim().toFloatOrNull() ?: 0f
         }
-
         if (cvTeam1.cardBackgroundColor.defaultColor == colorGris) {
             val multi = txtMulti1.text.toString().trim().toFloatOrNull() ?: 0f
             resultado = round(multi * bet)
-        }
-        else if (cvTeam2.cardBackgroundColor.defaultColor == colorGris) {
+        } else if (cvTeam2.cardBackgroundColor.defaultColor == colorGris) {
             val multi = txtMulti2.text.toString().trim().toFloatOrNull() ?: 0f
             resultado = round(multi * bet)
-
         }
         val formattedBet = String.format("%.0f", bet)
         val formattedWin = String.format("%.0f", resultado)
         txtBet.text = "$formattedBet"
         txtWin.text = "$formattedWin"
-
     }
+
     private fun updateBtnBetState(cvTeam1: CardView, cvTeam2: CardView, txtBet: TextView, btnBet: Button) {
         val colorGris = ContextCompat.getColor(cvTeam1.context, R.color.gris)
         val isTeam1Selected = cvTeam1.cardBackgroundColor.defaultColor == colorGris
         val isTeam2Selected = cvTeam2.cardBackgroundColor.defaultColor == colorGris
         val betAmount = txtBet.text.toString().toFloatOrNull()
-
-        if ((isTeam1Selected || isTeam2Selected) && betAmount != null && betAmount > 0.0) {
+        if ((isTeam1Selected || isTeam2Selected) && betAmount != null && betAmount > 0f) {
             btnBet.backgroundTintList = ContextCompat.getColorStateList(cvTeam1.context, R.color.verdeAgree)
             btnBet.isEnabled = true
             btnBet.setOnClickListener {
                 HomeFragment.coins -= txtBet.text.toString().toFloat()
                 val mainActivity = activity as? Main
                 mainActivity?.updateCoins()
-                //TODO: Añadir aqui la instancia de la BET, para hacer el add
-                //TODO: No tiene que hacer add si no solo hacer post a la API
-               val newBet = if(isTeam1Selected) {
+                val newBet = if (isTeam1Selected) {
                     Bet(0, matchNameString, tvTeam1.text.toString(), txtBet.text.toString(), txtWin.text.toString())
-                }else{
+                } else {
                     Bet(0, matchNameString, tvTeam2.text.toString(), txtBet.text.toString(), txtWin.text.toString())
                 }
-                //TODO: Añadir aqui el post a la API
                 lifecycleScope.launch {
                     try {
+                        updateBetData(txtBet.text.toString().toFloat())
                         val createdBet = LoginAPI.API().createBet(newBet).body()
-                        if(createdBet != null){
+                        if (createdBet != null) {
                             MyBetsDialogFragment.bets.add(createdBet)
-                        }else {
+                        } else {
                             Log.e("CreateBet", "La respuesta fue exitosa, pero el body es null")
                         }
-                    }catch (e: Exception){
+                    } catch (e: Exception) {
                         Log.e("Create Bet", "Excepción al usar add pasando una Bet", e)
-                    }finally {
-                        dismiss()
+                    } finally {
+                        withContext(Dispatchers.Main) {
+                            dismiss()
+                        }
                     }
                 }
             }
@@ -391,5 +394,4 @@ class ExpandableCardActivity2: BottomSheetDialogFragment() {
             btnBet.isEnabled = false
         }
     }
-
 }

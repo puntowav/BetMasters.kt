@@ -16,4 +16,8 @@
                 android:icon="@drawable/icon_shop"
                 android:title="Tienda"/>
 
+            <item
+                android:id="@+id/stats"
+                android:icon="@drawable/baseline_query_stats_24"
+                android:title="Estadisticas"/>
 </menu>
